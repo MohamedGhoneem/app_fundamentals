@@ -35,6 +35,7 @@ class AppColors {
 
 
   static Color getFontColor() {
+    SharedPreferenceHelper();
     if (SharedPreferenceHelper.getValueForKey(
         SharedPrefsKeys.themeMode) == null) {
       return _fontColor;

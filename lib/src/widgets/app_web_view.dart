@@ -37,6 +37,7 @@ class _AppWebViewState extends BaseState<AppWebView> {
   @override
   void initState() {
     super.initState();
+    SharedPreferenceHelper();
     headers?["lang"] =
         SharedPreferenceHelper.getValueForKey(SharedPrefsKeys.languageKey) ??
             'ar';

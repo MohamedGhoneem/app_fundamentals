@@ -16,6 +16,7 @@ class AppBackIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SharedPreferenceHelper();
     return InkWell(
       onTap: onTap,
       child: Padding(

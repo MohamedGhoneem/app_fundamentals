@@ -19,6 +19,7 @@ class ThemeManagerBloc extends BaseBloc {
   }
 
   getThemeMode() {
+    SharedPreferenceHelper();
     if (SharedPreferenceHelper.getValueForKey(SharedPrefsKeys.themeMode) ==
         null) {
       SharedPreferenceHelper.setValueForKey(
