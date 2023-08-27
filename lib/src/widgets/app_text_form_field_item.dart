@@ -1,6 +1,7 @@
 import 'dart:developer';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+
+// import 'package:flutter_svg/flutter_svg.dart';
 import 'package:rxdart/rxdart.dart';
 
 import '../colors.dart';
@@ -53,6 +54,7 @@ class AppTextFormFieldItem extends StatelessWidget with Validations {
   final VoidCallback? submit;
   final ValueChanged<String>? onChanged;
   final int? maxLength;
+  final Widget? showPasswordIcon;
 
   const AppTextFormFieldItem({
     this.controller,
@@ -82,6 +84,7 @@ class AppTextFormFieldItem extends StatelessWidget with Validations {
     this.submit,
     this.onChanged,
     this.maxLength,
+    this.showPasswordIcon,
     Key? key,
   }) : super(key: key);
 
@@ -119,78 +122,74 @@ class AppTextFormFieldItem extends StatelessWidget with Validations {
             color: fontColor ?? AppColors.getFontColor()),
         autovalidateMode: AutovalidateMode.onUserInteraction,
         obscureText: formFieldItemType == AppFormFieldItemType.password &&
-            obscureTextSubject!.value
+                obscureTextSubject!.value
             ? true
             : false,
         keyboardType: textInputType,
         onChanged: onChanged ??
-                (String input) {
+            (String input) {
               subject.sink.add(input);
             },
         decoration: InputDecoration(
-          prefixIcon: prefixIcon??const SizedBox(),
+          prefixIcon: prefixIcon ?? const SizedBox(),
           suffixIcon: formFieldItemType == AppFormFieldItemType.password
               ? IconButton(
                   onPressed: () {
                     log(obscureTextSubject!.value.toString());
-                    obscureTextSubject!.sink
-                        .add(!obscureTextSubject!.value);
+                    obscureTextSubject!.sink.add(!obscureTextSubject!.value);
                   },
-                  icon: SvgPicture.asset(
-                    'eyeSvg',
-                    color: obscureTextSnapshot
-                        ? borderColor
-                        : focusedBorderColor,
-                    width: SizeConfig.iconSize,
-                    height: SizeConfig.iconSize,
-                  ))
+                  icon: showPasswordIcon ??
+                      Icon(
+                        Icons.remove_red_eye,
+                        color: obscureTextSnapshot
+                            ? borderColor
+                            : focusedBorderColor,
+                      ))
               : const SizedBox(width: 0, height: 20),
           focusedBorder: showUnderLine == true
               ? UnderlineInputBorder(
-              borderSide: BorderSide(width: 1, color: labelFontColor))
+                  borderSide: BorderSide(width: 1, color: labelFontColor))
               : OutlineInputBorder(
-              borderSide: BorderSide(width: 1, color: focusedBorderColor),
-              borderRadius: const BorderRadius.all(Radius.circular(8))),
+                  borderSide: BorderSide(width: 1, color: focusedBorderColor),
+                  borderRadius: const BorderRadius.all(Radius.circular(8))),
           enabledBorder: showUnderLine == true
               ? UnderlineInputBorder(
-              borderSide: BorderSide(width: 1, color: labelFontColor))
+                  borderSide: BorderSide(width: 1, color: labelFontColor))
               : OutlineInputBorder(
-              borderSide: BorderSide(width: 1, color: borderColor),
-              borderRadius: BorderRadius.all(
-                  Radius.circular(SizeConfig.btnRadius / 2))),
+                  borderSide: BorderSide(width: 1, color: borderColor),
+                  borderRadius: BorderRadius.all(
+                      Radius.circular(SizeConfig.btnRadius / 2))),
           border: showUnderLine == true
               ? UnderlineInputBorder(
-              borderSide: BorderSide(width: 1, color: labelFontColor))
+                  borderSide: BorderSide(width: 1, color: labelFontColor))
               : OutlineInputBorder(
-              borderSide: BorderSide(width: 1, color: borderColor),
-              borderRadius: BorderRadius.all(
-                  Radius.circular(SizeConfig.btnRadius / 2))),
+                  borderSide: BorderSide(width: 1, color: borderColor),
+                  borderRadius: BorderRadius.all(
+                      Radius.circular(SizeConfig.btnRadius / 2))),
           errorBorder: showUnderLine == true
               ? const UnderlineInputBorder(
-              borderSide: BorderSide(width: 1, color: AppColors.redColor))
+                  borderSide: BorderSide(width: 1, color: AppColors.redColor))
               : OutlineInputBorder(
-              borderSide:
-              const BorderSide(width: 1, color: AppColors.redColor),
-              borderRadius: BorderRadius.all(
-                  Radius.circular(SizeConfig.btnRadius / 2))),
+                  borderSide:
+                      const BorderSide(width: 1, color: AppColors.redColor),
+                  borderRadius: BorderRadius.all(
+                      Radius.circular(SizeConfig.btnRadius / 2))),
           focusedErrorBorder: showUnderLine == true
               ? const UnderlineInputBorder(
-              borderSide: BorderSide(width: 1, color: AppColors.redColor))
+                  borderSide: BorderSide(width: 1, color: AppColors.redColor))
               : OutlineInputBorder(
-              borderSide:
-              const BorderSide(width: 1, color: AppColors.redColor),
-              borderRadius: BorderRadius.all(
-                  Radius.circular(SizeConfig.btnRadius / 2))),
-          contentPadding: EdgeInsets.all(SizeConfig.padding*1.2),
+                  borderSide:
+                      const BorderSide(width: 1, color: AppColors.redColor),
+                  borderRadius: BorderRadius.all(
+                      Radius.circular(SizeConfig.btnRadius / 2))),
+          contentPadding: EdgeInsets.all(SizeConfig.padding * 1.2),
           labelStyle: TextStyle(
-              fontSize: SizeConfig.textFontSize,
-              color: labelFontColor),
+              fontSize: SizeConfig.textFontSize, color: labelFontColor),
           floatingLabelBehavior: FloatingLabelBehavior.always,
           label: label,
           hintText: showHint == true ? title : '',
           hintStyle: TextStyle(
-              fontSize: SizeConfig.textFontSize,
-              color: labelFontColor),
+              fontSize: SizeConfig.textFontSize, color: labelFontColor),
           errorText: subject.hasError ? subject.stream.error.toString() : null,
           errorStyle: TextStyle(
               fontSize: SizeConfig.smallTextFontSize,
@@ -202,7 +201,6 @@ class AppTextFormFieldItem extends StatelessWidget with Validations {
 
   TextFormField textFormField({required BuildContext context}) {
     return TextFormField(
-
         onTap: onTap,
         controller: controller,
         cursorColor: cursorColor,
@@ -210,80 +208,65 @@ class AppTextFormFieldItem extends StatelessWidget with Validations {
         autofocus: autofocus ?? false,
         readOnly: readOnly ?? false,
         maxLines:
-        formFieldItemType == AppFormFieldItemType.multiText ? maxLines : 1,
+            formFieldItemType == AppFormFieldItemType.multiText ? maxLines : 1,
         maxLength: maxLength,
         style: TextStyle(
             fontSize: SizeConfig.textFontSize,
             color: fontColor ?? AppColors.getFontColor()),
         autovalidateMode: AutovalidateMode.onUserInteraction,
         obscureText: formFieldItemType == AppFormFieldItemType.password &&
-            obscureTextSubject!.value
+                obscureTextSubject!.value
             ? true
             : false,
         keyboardType: textInputType,
         textAlignVertical: TextAlignVertical.center,
         onChanged: onChanged ??
-                (String input) {
+            (String input) {
               subject.sink.add(input);
             },
         decoration: InputDecoration(
-          prefixIcon: prefixIcon,
-       //   suffixIcon: const SizedBox(width: 0, height: 20),
-          focusedBorder: showUnderLine == true
-              ? UnderlineInputBorder(
-              borderSide: BorderSide(width: 1, color: labelFontColor))
-              : OutlineInputBorder(
-              borderSide: BorderSide(width: 1, color: focusedBorderColor),
-              borderRadius: BorderRadius.all(
-                  Radius.circular(SizeConfig.btnRadius / 2))),
-          enabledBorder: showUnderLine == true
-              ? UnderlineInputBorder(
-              borderSide: BorderSide(width: 1, color: labelFontColor))
-              : OutlineInputBorder(
-              borderSide: BorderSide(width: 1, color: borderColor),
-              borderRadius: BorderRadius.all(
-                  Radius.circular(SizeConfig.btnRadius / 2))),
-          border: showUnderLine == true
-              ? UnderlineInputBorder(
-              borderSide: BorderSide(width: 1, color: labelFontColor))
-              : OutlineInputBorder(
-              borderSide: BorderSide(width: 1, color: borderColor),
-              borderRadius: BorderRadius.all(
-                  Radius.circular(SizeConfig.btnRadius / 2))),
-          errorBorder: showUnderLine == true
-              ? const UnderlineInputBorder(
-              borderSide: BorderSide(width: 1, color: AppColors.redColor))
-              : OutlineInputBorder(
-              borderSide:
-              const BorderSide(width: 1, color: AppColors.redColor),
-              borderRadius: BorderRadius.all(
-                  Radius.circular(SizeConfig.btnRadius / 2))),
-          focusedErrorBorder: showUnderLine == true
-              ? const UnderlineInputBorder(
-              borderSide: BorderSide(width: 1, color: AppColors.redColor))
-              : OutlineInputBorder(
-              borderSide:
-              const BorderSide(width: 1, color: AppColors.redColor),
-              borderRadius: BorderRadius.all(
-                  Radius.circular(SizeConfig.btnRadius / 2))),
-          contentPadding: contentPadding ?? EdgeInsets.all(SizeConfig.padding*1.2),
-          labelStyle: TextStyle(
+            prefixIcon: prefixIcon,
+            //   suffixIcon: const SizedBox(width: 0, height: 20),
+            focusedBorder: showUnderLine == true
+                ? UnderlineInputBorder(
+                    borderSide: BorderSide(width: 1, color: labelFontColor))
+                : OutlineInputBorder(
+                    borderSide: BorderSide(width: 1, color: focusedBorderColor),
+                    borderRadius: BorderRadius.all(
+                        Radius.circular(SizeConfig.btnRadius / 2))),
+            enabledBorder: showUnderLine == true
+                ? UnderlineInputBorder(
+                    borderSide: BorderSide(width: 1, color: labelFontColor))
+                : OutlineInputBorder(
+                    borderSide: BorderSide(width: 1, color: borderColor),
+                    borderRadius: BorderRadius.all(
+                        Radius.circular(SizeConfig.btnRadius / 2))),
+            border: showUnderLine == true
+                ? UnderlineInputBorder(
+                    borderSide: BorderSide(width: 1, color: labelFontColor))
+                : OutlineInputBorder(
+                    borderSide: BorderSide(width: 1, color: borderColor),
+                    borderRadius: BorderRadius.all(
+                        Radius.circular(SizeConfig.btnRadius / 2))),
+            errorBorder: showUnderLine == true
+                ? const UnderlineInputBorder(
+                    borderSide: BorderSide(width: 1, color: AppColors.redColor))
+                : OutlineInputBorder(borderSide: const BorderSide(width: 1, color: AppColors.redColor), borderRadius: BorderRadius.all(Radius.circular(SizeConfig.btnRadius / 2))),
+            focusedErrorBorder: showUnderLine == true ? const UnderlineInputBorder(borderSide: BorderSide(width: 1, color: AppColors.redColor)) : OutlineInputBorder(borderSide: const BorderSide(width: 1, color: AppColors.redColor), borderRadius: BorderRadius.all(Radius.circular(SizeConfig.btnRadius / 2))),
+            contentPadding: contentPadding ?? EdgeInsets.all(SizeConfig.padding * 1.2),
+            labelStyle: TextStyle(fontSize: SizeConfig.textFontSize, color: labelFontColor),
+            floatingLabelBehavior: FloatingLabelBehavior.always,
+            label: label,
+            hintText: showHint == true ? title : '',
+            hintStyle: TextStyle(
               fontSize: SizeConfig.textFontSize,
-              color: labelFontColor),
-          floatingLabelBehavior: FloatingLabelBehavior.always,
-          label: label,
-          hintText: showHint == true ? title : '',
-          hintStyle: TextStyle(
-            fontSize: SizeConfig.textFontSize,
-            color: labelFontColor,
-          ),
-          errorText: subject.hasError ? subject.stream.error.toString() : null,
-          errorStyle: TextStyle(
-              fontSize: SizeConfig.smallTextFontSize,
-              color: AppColors.redColor),
-          isCollapsed: true,
-          isDense: true,counterText: ''
-        ),
+              color: labelFontColor,
+            ),
+            errorText: subject.hasError ? subject.stream.error.toString() : null,
+            errorStyle: TextStyle(fontSize: SizeConfig.smallTextFontSize, color: AppColors.redColor),
+            isCollapsed: true,
+            isDense: true,
+            counterText: ''),
         onEditingComplete: submit,
         validator: validator);
   }

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+// import 'package:flutter_svg/svg.dart';
 import '../colors.dart';
 import 'app_loading_widget.dart';
 
@@ -69,15 +69,15 @@ class AppImage extends StatelessWidget {
     );
   }
 
-  Widget netWorkSvg() {
-    return SvgPicture.network(
-      path,
-      fit: boxFit ?? BoxFit.contain,
-      width: width,
-      height: height,
-      color: color,
-    );
-  }
+  // Widget netWorkSvg() {
+  //   return SvgPicture.network(
+  //     path,
+  //     fit: boxFit ?? BoxFit.contain,
+  //     width: width,
+  //     height: height,
+  //     color: color,
+  //   );
+  // }
 
 
   Widget assetImage() {

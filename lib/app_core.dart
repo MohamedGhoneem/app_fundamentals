@@ -37,4 +37,11 @@ export 'src/shared_preferences_helper.dart';
 export 'src/shared_preferences_keys.dart';
 export 'src/size_config.dart';
 export 'src/validations.dart';
+export 'package:image_picker/image_picker.dart';
+export 'package:permission_handler/permission_handler.dart';
+export 'package:permission_handler_platform_interface/permission_handler_platform_interface.dart';
+export 'package:permission_handler_platform_interface/permission_handler_platform_interface.dart';
+export 'package:webview_flutter/webview_flutter.dart';
+export 'package:device_info_plus/device_info_plus.dart';
+export 'package:shared_preferences/shared_preferences.dart';
 
