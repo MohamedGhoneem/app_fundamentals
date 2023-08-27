@@ -29,7 +29,7 @@ export 'src/widgets/app_refresh_indicator.dart';
 export 'src/widgets/app_text.dart';
 export 'src/widgets/app_text_form_field_item.dart';
 export 'src/widgets/app_web_view.dart';
-export 'src/widgets/bordered_dropdown.dart';
+export 'src/widgets/app_bordered_dropdown.dart';
 export 'src/base_stateful_widget.dart';
 export 'src/colors.dart';
 export 'src/no_splash_factory.dart';

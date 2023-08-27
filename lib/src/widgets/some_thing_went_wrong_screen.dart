@@ -9,16 +9,22 @@ import 'app_image.dart';
 ///==========================================================
 ///
 class SomeThingWentWrongScreen extends StatelessWidget {
-  final String label;
-  final TextStyle? style;
-  final TextAlign? textAlign;
+  final Widget image;
+  final String labelString;
+  final String errorString;
+  final TextStyle? labelStyle;
+  final TextStyle? errorStyle;
+  final String? retryTitle;
   final VoidCallback retry;
 
   const SomeThingWentWrongScreen(
       {Key? key,
-      required this.label,
-      this.style,
-      this.textAlign,
+      required this.image,
+      required this.labelString,
+      required this.errorString,
+      this.labelStyle,
+      this.errorStyle,
+      this.retryTitle,
       required this.retry})
       : super(key: key);
 
@@ -28,40 +34,36 @@ class SomeThingWentWrongScreen extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       mainAxisSize: MainAxisSize.min,
       children: [
-        AppImage(
-          path: 'someThingWentWrongPng',
-          width: SizeConfig.blockSizeHorizontal * 60,
-          height: SizeConfig.blockSizeHorizontal * 40,
-        ),
+        image,
         SizedBox(
           height: SizeConfig.padding,
         ),
         Text(
-          'Error',
-          style: style ??
+          labelString,
+          style: labelStyle ??
               TextStyle(
                   fontSize: SizeConfig.titleFontSize,
                   color: AppColors.getFontColor()),
-          textAlign: textAlign ?? TextAlign.start,
+          textAlign: TextAlign.center,
           maxLines: 1,
         ),
         SizedBox(
           height: SizeConfig.padding,
         ),
         Text(
-          'Some Thing Went Wrong',
-          style: style ??
+         errorString,
+          style: errorStyle ??
               TextStyle(
                   fontSize: SizeConfig.titleFontSize,
                   color: AppColors.getLightFontColor()),
-          textAlign: textAlign ?? TextAlign.center,
+          textAlign:TextAlign.center,
           maxLines: 2,
         ),
         SizedBox(
           height: SizeConfig.padding,
         ),
         AppButton(
-          title: 'Refresh',
+          title: retryTitle??'Refresh',
           borderColor: AppColors.primaryColor,
           backgroundColor: AppColors.primaryColor,
           style: TextStyle(

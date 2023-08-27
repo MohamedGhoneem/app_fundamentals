@@ -11,7 +11,7 @@ import 'app_label_with_icon.dart';
 /// CREATED BY MOHAMED GHONEIM 01/01/2022 TEL// +201064626369
 ///==========================================================
 ///
-class BorderedDropDown<T> extends StatelessWidget {
+class AppBorderedDropDown<T> extends StatelessWidget {
   final List<T> list;
   final BehaviorSubject<RequestState> selectedStateSubject;
   final BehaviorSubject<T> selectedSubject;
@@ -23,7 +23,7 @@ class BorderedDropDown<T> extends StatelessWidget {
   final String hint;
   final String? validatorError;
 
-  const BorderedDropDown(
+  const AppBorderedDropDown(
       {Key? key,
       required this.list,
       required this.selectedStateSubject,

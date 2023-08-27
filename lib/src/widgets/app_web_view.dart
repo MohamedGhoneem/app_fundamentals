@@ -18,8 +18,17 @@ import 'some_thing_went_wrong_screen.dart';
 class AppWebView extends BaseStatefulWidget {
   final String title;
   final String url;
+  final Widget? image;
+  final String? labelString;
+  final String? errorString;
 
-  const AppWebView({Key? key, required this.title, required this.url})
+  const AppWebView(
+      {Key? key,
+      required this.title,
+      required this.url,
+      this.image,
+      this.labelString,
+      this.errorString})
       : super(key: key);
 
   @override
@@ -118,24 +127,24 @@ Page resource error:
     return isError
         ? Center(
             child: SomeThingWentWrongScreen(
-              label: 'Some Thing Went Wrong',
-              retry: () {
-                setState(() {
-                  isError = false;
-                  _controller.loadRequest(Uri.parse(widget.url),
-                      headers: headers!);
-                });
-              },
-            ),
-          )
+            image: widget.image ??
+                const Center(
+                    child: Icon(
+                  Icons.error,
+                  color: Colors.red,
+                )),
+            labelString: widget.labelString ?? 'Error',
+            errorString: widget.errorString ?? 'Some Thing Went Wrong',
+            retry: () {
+              setState(() {
+                isError = false;
+                _controller.loadRequest(Uri.parse(widget.url),
+                    headers: headers!);
+              });
+            },
+          ))
         : WebViewWidget(controller: _controller);
 
-    //   WebView(
-    //   initialUrl: widget.url,
-    //   javascriptMode: JavascriptMode.unrestricted,
-    //   onPageFinished: (url) {
-    //   },
-    // );
   }
 
   @override
