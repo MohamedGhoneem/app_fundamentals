@@ -1,14 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:webview_flutter/webview_flutter.dart';
-import 'package:webview_flutter_wkwebview/webview_flutter_wkwebview.dart';
-import 'package:webview_flutter_android/webview_flutter_android.dart';
-import '../base_stateful_widget.dart';
-import '../colors.dart';
-import '../shared_preferences_helper.dart';
-import '../shared_preferences_keys.dart';
-import '../size_config.dart';
-import 'app_back_icon.dart';
-import 'app_button.dart';
+import 'package:app_core/app_core.dart';
 import 'some_thing_went_wrong_screen.dart';
 
 ///==========================================================

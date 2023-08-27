@@ -1,11 +1,8 @@
 import 'dart:async';
 import 'dart:io';
-import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
-import 'package:image_picker/image_picker.dart';
-import 'package:permission_handler/permission_handler.dart';
-
+import 'package:app_core/app_core.dart';
 
 ///==========================================================
 /// CREATED BY MOHAMED GHONEIM 01/01/2022 TEL// +201064626369

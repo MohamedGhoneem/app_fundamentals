@@ -1,13 +1,9 @@
 import 'dart:developer';
 import 'package:flutter/material.dart';
-
-// import 'package:flutter_svg/flutter_svg.dart';
-import 'package:rxdart/rxdart.dart';
-
 import '../colors.dart';
 import '../size_config.dart';
 import '../validations.dart';
-
+import 'package:rxdart_bloc/rxdart_bloc.dart';
 ///==========================================================
 /// CREATED BY MOHAMED GHONEIM 01/01/2022 TEL// +201064626369
 ///==========================================================

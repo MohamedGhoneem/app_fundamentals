@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import '../colors.dart';
 import '../size_config.dart';
 import 'app_button.dart';
-import 'app_image.dart';
 
 ///==========================================================
 /// CREATED BY MOHAMED GHONEIM 01/01/2022 TEL// +201064626369

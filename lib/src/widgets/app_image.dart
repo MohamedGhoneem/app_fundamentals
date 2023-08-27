@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-// import 'package:flutter_svg/svg.dart';
 import '../colors.dart';
 import 'app_loading_widget.dart';
 

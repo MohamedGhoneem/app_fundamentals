@@ -1,4 +1,3 @@
-import 'package:rxdart/rxdart.dart';
 
 mixin Validations {
   isHasArabicChar(String value) {

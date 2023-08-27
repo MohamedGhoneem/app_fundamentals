@@ -1,4 +1,5 @@
 library app_core;
+
 export 'src/blocs/pick_file/file_picker_bloc.dart';
 export 'src/blocs/theme/theme_manager_bloc.dart';
 export 'src/blocs/timer/timer_bloc.dart';
@@ -42,6 +43,7 @@ export 'package:permission_handler/permission_handler.dart';
 export 'package:permission_handler_platform_interface/permission_handler_platform_interface.dart';
 export 'package:permission_handler_platform_interface/permission_handler_platform_interface.dart';
 export 'package:webview_flutter/webview_flutter.dart';
+export 'package:webview_flutter_wkwebview/webview_flutter_wkwebview.dart';
+export 'package:webview_flutter_android/webview_flutter_android.dart';
 export 'package:device_info_plus/device_info_plus.dart';
 export 'package:shared_preferences/shared_preferences.dart';
-
