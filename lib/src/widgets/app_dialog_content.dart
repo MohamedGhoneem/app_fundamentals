@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import '../colors.dart';
-import '../size_config.dart';
 import 'app_button.dart';
 import 'app_text.dart';
 
@@ -9,27 +7,49 @@ import 'app_text.dart';
 ///==========================================================
 ///
 class AppDialogContent extends StatelessWidget {
+  final Color? backgroundColor;
   final String? title;
   final TextStyle? titleStyle;
   final Widget? alertIcon;
   final String description;
   final TextStyle? descriptionStyle;
   final String? okButtonTitle;
+  final TextStyle? okTitleStyle;
+  final Color? okButtonBorderColor;
+  final Color? okButtonBackgroundColor;
+  final double? okButtonRadius;
+  final double? okButtonHeight;
   final String? cancelButtonTitle;
+  final TextStyle? cancelTitleStyle;
   final VoidCallback? okBtnTapped;
   final VoidCallback? cancelBtnTapped;
+  final Color? cancelButtonBorderColor;
+  final Color? cancelButtonBackgroundColor;
+  final double? cancelButtonRadius;
+  final double? cancelButtonHeight;
 
- const AppDialogContent(
+  const AppDialogContent(
       {Key? key,
+      this.backgroundColor,
       this.title,
-        this.titleStyle,
+      this.titleStyle,
       this.alertIcon,
       required this.description,
-        this.descriptionStyle,
+      this.descriptionStyle,
       this.okButtonTitle,
+      this.okTitleStyle,
+      this.okButtonBorderColor,
+      this.okButtonBackgroundColor,
+      this.okButtonRadius,
+      this.okButtonHeight,
       this.cancelButtonTitle,
+      this.cancelTitleStyle,
       this.okBtnTapped,
-      this.cancelBtnTapped})
+      this.cancelBtnTapped,
+      this.cancelButtonBorderColor,
+      this.cancelButtonBackgroundColor,
+      this.cancelButtonRadius,
+      this.cancelButtonHeight})
       : super(key: key);
 
   @override
@@ -38,14 +58,11 @@ class AppDialogContent extends StatelessWidget {
       child: Wrap(
         children: [
           Container(
-            margin: EdgeInsets.symmetric(
-                horizontal: SizeConfig.padding * 2,
-                vertical: SizeConfig.padding * 5),
-            padding: EdgeInsets.symmetric(
-                horizontal: SizeConfig.padding, vertical: SizeConfig.padding),
+            margin: const EdgeInsets.symmetric(horizontal: 32, vertical: 80),
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
             decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(SizeConfig.btnRadius),
-                color: AppColors.whiteColor),
+                borderRadius: BorderRadius.circular(12),
+                color: backgroundColor ?? Colors.white),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               mainAxisSize: MainAxisSize.min,
@@ -54,24 +71,26 @@ class AppDialogContent extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     AppText(
-                      label: title ??'Alert',
-                      style: titleStyle??TextStyle(
-                          fontSize: SizeConfig.titleFontSize,
-                          color: Colors.black,
-                          decoration: TextDecoration.none),
+                      label: title ?? 'Alert',
+                      style: titleStyle ??
+                          const TextStyle(
+                              fontSize: 16,
+                              color: Colors.black,
+                              decoration: TextDecoration.none),
                     ),
                     alertIcon ?? const SizedBox()
                   ],
                 ),
-                SizedBox(height: SizeConfig.padding),
+                const SizedBox(height: 16),
                 AppText(
                   label: description,
-                  style: descriptionStyle??TextStyle(
-                      fontSize: SizeConfig.titleFontSize,
-                      color: Colors.black,
-                      decoration: TextDecoration.none),
+                  style: descriptionStyle ??
+                      const TextStyle(
+                          fontSize: 16,
+                          color: Colors.black,
+                          decoration: TextDecoration.none),
                 ),
-                SizedBox(height: SizeConfig.padding * 2),
+                const SizedBox(height: 32),
                 Row(
                   children: [
                     Expanded(
@@ -79,14 +98,15 @@ class AppDialogContent extends StatelessWidget {
                         padding: const EdgeInsets.symmetric(horizontal: 8.0),
                         child: AppButton(
                           width: double.infinity,
-                          height: SizeConfig.btnHeight - 5,
-                          style: TextStyle(
-                              fontSize: SizeConfig.titleFontSize,
-                              color: AppColors.whiteColor),
-                          title: okButtonTitle ??'Ok',
-                          borderColor: AppColors.primaryColor,
-                          backgroundColor: AppColors.primaryColor,
-                          radius: SizeConfig.btnRadius/2,
+                          height: okButtonHeight ?? 40,
+                          style: okTitleStyle ??
+                              const TextStyle(
+                                  fontSize: 16, color: Colors.white),
+                          title: okButtonTitle ?? 'Ok',
+                          borderColor: okButtonBorderColor ?? Colors.blue,
+                          backgroundColor:
+                              okButtonBackgroundColor ?? Colors.blue,
+                          radius: okButtonRadius ?? 4,
                           onTap: okBtnTapped ?? () => Navigator.pop(context),
                         ),
                       ),
@@ -97,14 +117,15 @@ class AppDialogContent extends StatelessWidget {
                           padding: const EdgeInsets.symmetric(horizontal: 8.0),
                           child: AppButton(
                             width: double.infinity,
-                            height: SizeConfig.btnHeight - 5,
-                            style: TextStyle(
-                                fontSize: SizeConfig.titleFontSize,
-                                color: AppColors.whiteColor),
+                            height: cancelButtonHeight ?? 40,
+                            style: cancelTitleStyle ??
+                                const TextStyle(
+                                    fontSize: 16, color: Colors.white),
                             title: cancelButtonTitle ?? '',
-                            borderColor: AppColors.blueColor,
-                            backgroundColor: AppColors.blueColor,
-                            radius: SizeConfig.btnRadius/2,
+                            borderColor: cancelButtonBorderColor ?? Colors.grey,
+                            backgroundColor:
+                                cancelButtonBackgroundColor ?? Colors.grey,
+                            radius: cancelButtonRadius ?? 4,
                             onTap:
                                 cancelBtnTapped ?? () => Navigator.pop(context),
                           ),
@@ -112,7 +133,7 @@ class AppDialogContent extends StatelessWidget {
                       ),
                   ],
                 ),
-                SizedBox(height: SizeConfig.padding),
+                const SizedBox(height: 16),
               ],
             ),
           ),

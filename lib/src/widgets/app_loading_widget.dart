@@ -1,19 +1,22 @@
 import 'package:flutter/material.dart';
 
-import '../colors.dart';
-
 ///==========================================================
 /// CREATED BY MOHAMED GHONEIM 01/01/2022 TEL// +201064626369
 ///==========================================================
 ///
 class AppLoadingWidget extends StatelessWidget {
-  const AppLoadingWidget({Key? key}) : super(key: key);
+  final Color? color;
+  final Widget? loadingWidget;
+
+  const AppLoadingWidget({Key? key, this.color, this.loadingWidget})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return const Center(
-      child: CircularProgressIndicator(
-          valueColor: AlwaysStoppedAnimation(AppColors.primaryColor)),
+    return Center(
+      child: loadingWidget ??
+          CircularProgressIndicator(
+              valueColor: AlwaysStoppedAnimation(color ?? Colors.blue)),
     );
     // return Align(
     //   alignment: Alignment.center,

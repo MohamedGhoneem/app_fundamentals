@@ -10,6 +10,8 @@ import 'some_thing_went_wrong_screen.dart';
 class AppWebView extends BaseStatefulWidget {
   final String title;
   final String url;
+  final String? currentLanguage;
+  final double? appBarHeight;
   final Widget? image;
   final String? labelString;
   final String? errorString;
@@ -18,6 +20,8 @@ class AppWebView extends BaseStatefulWidget {
       {Key? key,
       required this.title,
       required this.url,
+      this.currentLanguage,
+      this.appBarHeight,
       this.image,
       this.labelString,
       this.errorString})
@@ -37,10 +41,7 @@ class _AppWebViewState extends BaseState<AppWebView> {
   @override
   void initState() {
     super.initState();
-    SharedPreferenceHelper();
-    headers?["lang"] =
-        SharedPreferenceHelper.getValueForKey(SharedPrefsKeys.languageKey) ??
-            'ar';
+    headers?["lang"] = widget.currentLanguage ?? 'en';
     // #docregion platform_features
     if (WebViewPlatform.instance is WebKitWebViewPlatform) {
       params = WebKitWebViewControllerCreationParams(
@@ -137,34 +138,33 @@ Page resource error:
             },
           ))
         : WebViewWidget(controller: _controller);
-
   }
 
   @override
   PreferredSizeWidget? setAppbar() {
     return PreferredSize(
       preferredSize:
-          Size(SizeConfig.blockSizeHorizontal * 100, SizeConfig.appBarHeight),
+          Size(MediaQuery.of(context).size.width, widget.appBarHeight ?? 0),
       child: Container(
-          width: SizeConfig.blockSizeHorizontal * 100,
+          width: MediaQuery.of(context).size.width,
           padding: EdgeInsets.only(
               top: MediaQuery.of(context).viewPadding.top,
-              bottom: SizeConfig.padding),
+              bottom: 16),
           decoration: BoxDecoration(
-            color: AppColors.transparentColor,
+            color: Colors.transparent,
             border: Border(
                 bottom: BorderSide(
-                    color: AppColors.lightGreyColor.withOpacity(.4), width: 1)),
+                    color: Colors.grey.withOpacity(.4), width: 1)),
           ),
           child: Row(
             children: [
-              SizedBox(width: SizeConfig.padding),
+              const SizedBox(width: 16),
               AppButton(
                   title: widget.title,
-                  borderColor: AppColors.transparentColor,
-                  backgroundColor: AppColors.transparentColor,
+                  borderColor: Colors.transparent,
+                  backgroundColor: Colors.transparent,
                   alignment: AppButtonAlign.start,
-                  icon: const AppBackIcon(),
+                  icon:  AppBackIcon(currentLanguage: widget.currentLanguage,),
                   onTap: () => super.setOnWillPop()),
             ],
           )),
@@ -180,4 +180,5 @@ Page resource error:
   setOnBack() {
     return super.setOnWillPop();
   }
+
 }

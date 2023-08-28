@@ -1,15 +1,24 @@
 import 'package:flutter/material.dart';
-import '../size_config.dart';
 import 'app_text.dart';
 
 ///==========================================================
 /// CREATED BY MOHAMED GHONEIM 01/01/2022 TEL// +201064626369
 ///==========================================================
 ///
-enum AppButtonAlign { start, center, centerStartIcon, centerEndIcon,end, none, expandedEndIcon, expandedStartIcon }
+enum AppButtonAlign {
+  start,
+  center,
+  centerStartIcon,
+  centerEndIcon,
+  end,
+  none,
+  expandedEndIcon,
+  expandedStartIcon
+}
 
 class AppButton extends StatelessWidget {
   final String title;
+  final double? titleFontSize;
   final Widget? icon;
   final TextStyle? style;
   final Color borderColor;
@@ -28,6 +37,7 @@ class AppButton extends StatelessWidget {
   const AppButton(
       {Key? key,
       required this.title,
+      this.titleFontSize,
       this.icon,
       this.style,
       required this.borderColor,
@@ -47,8 +57,8 @@ class AppButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: height ?? SizeConfig.btnHeight,
-      width: width,
+      height: height ?? 45,
+      width: width ?? MediaQuery.of(context).size.width,
       margin: margin ?? EdgeInsets.zero,
       child: OutlinedButton(
         style: OutlinedButton.styleFrom(
@@ -80,9 +90,8 @@ class AppButton extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               if (icon != null) icon!,
-              if (icon != null)
-                SizedBox(width: spaceBetween ?? SizeConfig.padding / 2),
-               _title(),
+              if (icon != null) SizedBox(width: spaceBetween ?? 8),
+              _title(),
             ],
           );
         case AppButtonAlign.center:
@@ -91,8 +100,7 @@ class AppButton extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               _title(),
-              if (icon != null)
-                SizedBox(width: spaceBetween ?? SizeConfig.padding / 2),
+              if (icon != null) SizedBox(width: spaceBetween ?? 8),
               if (icon != null) icon!,
             ],
           );
@@ -102,8 +110,7 @@ class AppButton extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               if (icon != null) icon!,
-              if (icon != null)
-                SizedBox(width: spaceBetween ?? SizeConfig.padding / 2),
+              if (icon != null) SizedBox(width: spaceBetween ?? 8),
               _title(),
             ],
           );
@@ -113,8 +120,7 @@ class AppButton extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               _title(),
-              if (icon != null)
-                SizedBox(width: spaceBetween ?? SizeConfig.padding / 2),
+              if (icon != null) SizedBox(width: spaceBetween ?? 8),
               if (icon != null) icon!,
             ],
           );
@@ -124,10 +130,8 @@ class AppButton extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               if (icon != null) icon!,
-              if (icon != null)
-                SizedBox(width: spaceBetween ?? SizeConfig.padding / 2),
+              if (icon != null) SizedBox(width: spaceBetween ?? 8),
               Expanded(child: _title()),
-
             ],
           );
         case AppButtonAlign.expandedEndIcon:
@@ -145,8 +149,7 @@ class AppButton extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               _title(),
-              if (icon != null)
-                SizedBox(width: spaceBetween ?? SizeConfig.padding / 2),
+              if (icon != null) SizedBox(width: spaceBetween ?? 8),
               if (icon != null) icon!,
             ],
           );
@@ -156,8 +159,7 @@ class AppButton extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               _title(),
-              if (icon != null)
-                SizedBox(width: spaceBetween ?? SizeConfig.padding / 2),
+              if (icon != null) SizedBox(width: spaceBetween ?? 8),
               if (icon != null) icon!,
             ],
           );
@@ -168,8 +170,7 @@ class AppButton extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           _title(),
-          if (icon != null)
-            SizedBox(width: spaceBetween ?? SizeConfig.padding / 2),
+          if (icon != null) SizedBox(width: spaceBetween ?? 8),
           if (icon != null) icon!,
         ],
       );
@@ -181,7 +182,7 @@ class AppButton extends StatelessWidget {
       label: title,
       style: style ??
           TextStyle(
-              fontSize: SizeConfig.textFontSize,
+              fontSize: titleFontSize ?? 14,
               color: Colors.black,
               decoration: TextDecoration.none),
     );

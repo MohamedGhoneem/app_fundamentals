@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
-import '../shared_preferences_helper.dart';
-import '../shared_preferences_keys.dart';
-import '../size_config.dart';
 
 ///==========================================================
 /// CREATED BY MOHAMED GHONEIM 01/01/2022 TEL// +201064626369
@@ -11,26 +8,28 @@ import '../size_config.dart';
 class AppBackIcon extends StatelessWidget {
   final VoidCallback? onTap;
   final String? backIconPath;
+  final String? currentLanguage;
+  final EdgeInsets? padding;
 
-  const AppBackIcon({Key? key, this.onTap, this.backIconPath}) : super(key: key);
+  const AppBackIcon(
+      {Key? key,
+      this.onTap,
+      this.backIconPath,
+      required this.currentLanguage,
+      this.padding})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    SharedPreferenceHelper();
     return InkWell(
       onTap: onTap,
       child: Padding(
-        padding: EdgeInsets.all(SizeConfig.padding),
+        padding: padding ?? const EdgeInsets.all(16),
         child: Transform(
-          transform: Matrix4.rotationY(getLanguage() == 'en' ? 0 : math.pi),
-          child:const Icon(Icons.arrow_back_ios),
+          transform: Matrix4.rotationY(currentLanguage == 'en' ? 0 : math.pi),
+          child: const Icon(Icons.arrow_back_ios),
         ),
       ),
     );
-  }
-
-  static String getLanguage() {
-    return SharedPreferenceHelper.getValueForKey(SharedPrefsKeys.languageKey) ??
-        'en';
   }
 }

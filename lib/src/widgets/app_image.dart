@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../colors.dart';
 import 'app_loading_widget.dart';
 
 ///==========================================================
@@ -14,6 +13,8 @@ class AppImage extends StatelessWidget {
   final bool? isCircular;
   final BoxFit? boxFit;
   final Color? color;
+  final Widget? defaultImage;
+  final Widget? loadingWidget;
 
   const AppImage({
     required this.path,
@@ -24,6 +25,8 @@ class AppImage extends StatelessWidget {
     this.color,
     Key? key,
     this.onPressed,
+    this.defaultImage,
+    this.loadingWidget,
   }) : super(key: key);
 
   @override
@@ -33,12 +36,12 @@ class AppImage extends StatelessWidget {
 
   Widget image() {
     if (path.startsWith('assets')) {
-      if(path.endsWith('.svg')){
+      if (path.endsWith('.svg')) {
         return assetSvg();
       }
       return assetImage();
     } else {
-      if(path.endsWith('.svg')){
+      if (path.endsWith('.svg')) {
         return assetSvg();
       }
       return netWorkImage();
@@ -55,15 +58,16 @@ class AppImage extends StatelessWidget {
       color: color,
       errorBuilder:
           (BuildContext? context, Object? object, StackTrace? stackTrace) {
-        return const Icon(
-          Icons.error,
-          color: AppColors.primaryColor,
-        );
+        return defaultImage ??
+            const Icon(
+              Icons.error,
+              color: Colors.red,
+            );
       },
       loadingBuilder: (BuildContext? context, Widget? child,
           ImageChunkEvent? loadingProgress) {
         if (loadingProgress == null) return child!;
-        return const AppLoadingWidget();
+        return loadingWidget ?? const AppLoadingWidget();
       },
     );
   }
@@ -78,7 +82,6 @@ class AppImage extends StatelessWidget {
   //   );
   // }
 
-
   Widget assetImage() {
     return Image.asset(
       path,
@@ -89,9 +92,11 @@ class AppImage extends StatelessWidget {
       color: color,
       errorBuilder:
           (BuildContext? context, Object? object, StackTrace? stackTrace) {
-        return Image.asset(
-          'logoPng',
-        );
+        return defaultImage ??
+            const Icon(
+              Icons.error,
+              color: Colors.red,
+            );
       },
     );
   }
@@ -106,9 +111,11 @@ class AppImage extends StatelessWidget {
       color: color,
       errorBuilder:
           (BuildContext? context, Object? object, StackTrace? stackTrace) {
-        return Image.asset(
-          'logoPng',
-        );
+        return defaultImage ??
+            const Icon(
+              Icons.error,
+              color: Colors.red,
+            );
       },
     );
   }

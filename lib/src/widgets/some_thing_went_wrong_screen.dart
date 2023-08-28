@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import '../colors.dart';
-import '../size_config.dart';
 import 'app_button.dart';
 
 ///==========================================================
@@ -14,18 +12,24 @@ class SomeThingWentWrongScreen extends StatelessWidget {
   final TextStyle? labelStyle;
   final TextStyle? errorStyle;
   final String? retryTitle;
+  final TextStyle? retryTitleStyle;
+  final Color? retryButtonBorderColor;
+  final Color? retryButtonBackgroundColor;
   final VoidCallback retry;
 
-  const SomeThingWentWrongScreen(
-      {Key? key,
-      required this.image,
-      required this.labelString,
-      required this.errorString,
-      this.labelStyle,
-      this.errorStyle,
-      this.retryTitle,
-      required this.retry})
-      : super(key: key);
+  const SomeThingWentWrongScreen({
+    Key? key,
+    required this.image,
+    required this.labelString,
+    required this.errorString,
+    this.labelStyle,
+    this.errorStyle,
+    this.retryTitle,
+    required this.retry,
+    this.retryTitleStyle,
+    this.retryButtonBorderColor,
+    this.retryButtonBackgroundColor,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -34,44 +38,33 @@ class SomeThingWentWrongScreen extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         image,
-        SizedBox(
-          height: SizeConfig.padding,
-        ),
+        const SizedBox(height: 16),
         Text(
           labelString,
-          style: labelStyle ??
-              TextStyle(
-                  fontSize: SizeConfig.titleFontSize,
-                  color: AppColors.getFontColor()),
+          style:
+              labelStyle ?? const TextStyle(fontSize: 18, color: Colors.black),
           textAlign: TextAlign.center,
           maxLines: 1,
         ),
-        SizedBox(
-          height: SizeConfig.padding,
-        ),
+        const SizedBox(height: 16),
         Text(
-         errorString,
-          style: errorStyle ??
-              TextStyle(
-                  fontSize: SizeConfig.titleFontSize,
-                  color: AppColors.getLightFontColor()),
-          textAlign:TextAlign.center,
+          errorString,
+          style:
+              errorStyle ?? const TextStyle(fontSize: 16, color: Colors.black),
+          textAlign: TextAlign.center,
           maxLines: 2,
         ),
-        SizedBox(
-          height: SizeConfig.padding,
-        ),
+        const SizedBox(height: 16),
         AppButton(
-          title: retryTitle??'Refresh',
-          borderColor: AppColors.primaryColor,
-          backgroundColor: AppColors.primaryColor,
-          style: TextStyle(
-              fontFamily: '',
-              fontSize: SizeConfig.textFontSize,
-              color: AppColors.whiteColor),
+          title: retryTitle ?? 'Refresh',
+          borderColor: retryButtonBorderColor ?? Colors.blue,
+          backgroundColor: retryButtonBackgroundColor ?? Colors.blue,
+          style: retryTitleStyle ??
+              const TextStyle(
+                  fontFamily: '', fontSize: 13, color: Colors.white),
           alignment: AppButtonAlign.centerStartIcon,
-          width: SizeConfig.blockSizeHorizontal * 25,
-          radius: SizeConfig.blockSizeHorizontal * 2,
+          width: MediaQuery.of(context).size.width * 25,
+          radius: 4,
           onTap: retry,
         ),
       ],

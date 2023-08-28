@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../colors.dart';
-import '../size_config.dart';
-
 ///==========================================================
 /// CREATED BY MOHAMED GHONEIM 01/01/2022 TEL// +201064626369
 ///==========================================================
@@ -28,9 +25,9 @@ class AppText extends StatelessWidget {
     return Text(
       label,
       style: style ??
-          TextStyle(
-              fontSize: SizeConfig.textFontSize,
-              color: AppColors.getFontColor(),
+          const TextStyle(
+              fontSize: 13,
+              color: Colors.black,
               decoration: TextDecoration.none),
       textAlign: textAlign ?? TextAlign.start,
       maxLines: maxLines,

@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:rxdart_bloc/rxdart_bloc.dart';
-import '../colors.dart';
-import '../size_config.dart';
 import 'app_container_with_label.dart';
 import 'app_dropdown.dart';
 import 'app_label_with_icon.dart';
@@ -22,6 +20,9 @@ class AppBorderedDropDown<T> extends StatelessWidget {
   final String hint;
   final String? validatorError;
   final Widget? icon;
+  final Color? labelColor;
+  final Widget? requiredIcon;
+  final double? fontSize;
 
   const AppBorderedDropDown(
       {Key? key,
@@ -35,7 +36,10 @@ class AppBorderedDropDown<T> extends StatelessWidget {
       required this.label,
       required this.hint,
       this.validatorError,
-      this.icon})
+      this.icon,
+      this.labelColor,
+      this.requiredIcon,
+      this.fontSize})
       : super(key: key);
 
   @override
@@ -49,23 +53,21 @@ class AppBorderedDropDown<T> extends StatelessWidget {
                 stream: borderColorSubject.stream,
                 builder: (context, snapshotBorderColor) {
                   return AppContainerWithLabel(
-                    borderColor:
-                        snapshotBorderColor.data ?? AppColors.greyColor,
+                    borderColor: snapshotBorderColor.data ?? Colors.grey,
                     padding: EdgeInsets.zero,
                     label: AppLabelWithIcon(
                       icon:
-                          // validatorError != null &&
-                          //         validatorError?.trim() != ''
-                          //     ? Icon(
-                          //         Icons.star,
-                          //         color: AppColors.accentColor,
-                          //         size: (SizeConfig.iconSize / 3) - 2,
-                          //       )
-                          //     :
-                          const SizedBox(),
-                      label: label,
-                      labelColor: AppColors.primaryColor,
-                      fontSize: SizeConfig.smallTextFontSize,
+                          validatorError != null && validatorError?.trim() != ''
+                              ? requiredIcon ??
+                                  const Icon(
+                                    Icons.star,
+                                    color: Colors.red,
+                                    size: 12,
+                                  )
+                              : const SizedBox(),
+                      label: label ?? '',
+                      labelColor: labelColor ?? Colors.blue,
+                      fontSize: fontSize ?? 14,
                     ),
                     child: AppDropdown<T>(
                       hint: hint,

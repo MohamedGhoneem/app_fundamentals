@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../size_config.dart';
 import 'app_text.dart';
 
 ///==========================================================
@@ -30,9 +29,9 @@ class AppLabelWithIcon extends StatelessWidget {
           label: label,
           style: TextStyle(
               fontSize:
-              fontSize ?? SizeConfig.textFontSize,color: labelColor),
+              fontSize ?? 13,color: labelColor),
         ),
-        SizedBox(width: SizeConfig.blockSizeHorizontal/2),
+        const SizedBox(width: 4),
         icon,
       ],
     );

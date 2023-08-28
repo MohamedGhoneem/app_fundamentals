@@ -9,9 +9,10 @@ import 'package:rxdart_bloc/rxdart_bloc.dart';
 
 class NavBarItem {
   final String? title;
+  final String? iconPath;
   final Widget widget;
 
-  const NavBarItem({this.title, required this.widget});
+  const NavBarItem({required this.title, this.iconPath, required this.widget});
 }
 
 class NavBarBloc {

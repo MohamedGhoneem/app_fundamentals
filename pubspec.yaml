@@ -16,12 +16,8 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^2.0.0
-  image_picker:
-  permission_handler:
-  pin_code_fields:
   webview_flutter:
-  device_info_plus:
-  shared_preferences:
+
 
 
 # For information on the generic Dart part of this file, see the

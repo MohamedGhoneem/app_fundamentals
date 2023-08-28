@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../colors.dart';
-import '../size_config.dart';
-
 ///==========================================================
 /// CREATED BY MOHAMED GHONEIM 01/01/2022 TEL// +201064626369
 ///==========================================================
@@ -23,11 +20,11 @@ class AppDivider extends StatelessWidget {
   Widget divider() {
     return Padding(
       padding: dividerPadding ??
-          EdgeInsets.only(top: SizeConfig.padding, bottom: SizeConfig.padding),
+          const EdgeInsets.only(top: 16, bottom: 16),
       child: Divider(
         height: dividerHeight ?? 1,
         thickness: thickness??1,
-        color: dividerColor ?? AppColors.lightGreyColor.withOpacity(.3),
+        color: dividerColor ?? Colors.grey.withOpacity(.3),
       ),
     );
   }

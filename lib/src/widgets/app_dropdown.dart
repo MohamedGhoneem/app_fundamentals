@@ -1,7 +1,5 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
-import '../colors.dart';
-import '../size_config.dart';
 import 'app_text.dart';
 
 ///==========================================================
@@ -18,9 +16,9 @@ class AppDropdown<T> extends StatelessWidget {
   final FormFieldValidator<T> validator;
   final TextStyle? style;
   final Widget? icon;
-  final Color? iconColor;
   final VoidCallback? onTap;
   final bool? readOnly;
+  final Color? dropdownColor;
 
   const AppDropdown(
       {Key? key,
@@ -33,9 +31,9 @@ class AppDropdown<T> extends StatelessWidget {
       required this.validator,
       this.style,
       this.icon,
-      this.iconColor,
       this.onTap,
-      this.readOnly = false})
+      this.readOnly = false,
+      this.dropdownColor})
       : super(key: key);
 
   @override
@@ -46,28 +44,28 @@ class AppDropdown<T> extends StatelessWidget {
       value: selectedItem,
       validator: validator,
       // alignment: Alignment.bottomRight,
-      dropdownColor: AppColors.getBackGroundColor(),
+      dropdownColor: dropdownColor??Colors.grey,
       hint: AppText(
         label: hint ?? '',
         style: style ??
-            TextStyle(
+            const TextStyle(
               fontSize: 14,
-              color: AppColors.getFontColor(),
+              color: Colors.black,
             ),
       ),
-      style: TextStyle(
+      style: style??const TextStyle(
         fontSize: 14,
-        color: AppColors.getFontColor(),
+        color: Colors.black,
       ),
       autovalidateMode: AutovalidateMode.onUserInteraction,
       decoration: const InputDecoration(
           border: InputBorder.none,
           contentPadding: EdgeInsets.symmetric(horizontal: 8)),
       icon: icon ??
-          Icon(
+          const Icon(
             Icons.keyboard_arrow_down,
-            size: SizeConfig.iconSize,
-            color: iconColor ?? AppColors.getFontColor(),
+            size: 15,
+            color: Colors.black ,
           ),
       onTap: onTap,
       items: items.map((T data) {
@@ -75,11 +73,11 @@ class AppDropdown<T> extends StatelessWidget {
         return DropdownMenuItem(
           value: data,
           child: AppText(
-            label: '${map['flag'] ?? ''} ${map[titleKey]}',
+            label: '${map[titleKey]}',
             style: style ??
-                TextStyle(
+                const TextStyle(
                     fontSize: 14,
-                    color: AppColors.getFontColor(),
+                    color: Colors.black,
                     decoration: TextDecoration.none),
           ),
         );

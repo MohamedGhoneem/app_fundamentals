@@ -1,8 +1,5 @@
-import 'package:app_core/src/size_config.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'blocs/theme/theme_manager_bloc.dart';
-import 'colors.dart';
 import 'nav_bar/nav_bar_widget.dart';
 import 'package:rxdart_bloc/rxdart_bloc.dart';
 
@@ -30,37 +27,32 @@ abstract class BaseState<T extends BaseStatefulWidget> extends State<T>
   @override
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(
-        const SystemUiOverlayStyle(statusBarColor: AppColors.transparentColor));
-    SizeConfig().init(context);
-    return ValueListenableBuilder(
-        valueListenable: themeManagerBloc.themeData,
-        builder: (context, themeType, child) {
-          return WillPopScope(
-            onWillPop: setOnWillPop,
-            child: Container(
-              decoration: hasScaffoldBackgroundImage()
-                  ? BoxDecoration(
-                      image: DecorationImage(
-                          fit: BoxFit.fill,
-                          image: AssetImage(setScaffoldBackgroundImage())))
-                  : const BoxDecoration(),
-              child: Scaffold(
-                floatingActionButton: setFloatingActionButton(),
-                floatingActionButtonLocation: setFloatingActionButtonLocation(),
-                resizeToAvoidBottomInset: setResizeToAvoidBottomInset(),
-                backgroundColor: setScaffoldBackgroundColor(),
-                key: getScreenKey,
-                appBar: setAppbar(),
-                // drawer: setDrawer(),
-                body: GestureDetector(
-                    onTap: () => unFocusKeyboard(), child: setBody(context)),
-                bottomNavigationBar: showBottomNavigationBar()
-                    ? setBottomNavigationBar()
-                    : const SizedBox(),
-              ),
-            ),
-          );
-        });
+        const SystemUiOverlayStyle(statusBarColor: Colors.transparent));
+    return WillPopScope(
+      onWillPop: setOnWillPop,
+      child: Container(
+        decoration: setScaffoldBackgroundImage() != null
+            ? BoxDecoration(
+                image: DecorationImage(
+                    fit: BoxFit.fill,
+                    image: AssetImage(setScaffoldBackgroundImage() ?? '')))
+            : const BoxDecoration(),
+        child: Scaffold(
+          floatingActionButton: setFloatingActionButton(),
+          floatingActionButtonLocation: setFloatingActionButtonLocation(),
+          resizeToAvoidBottomInset: setResizeToAvoidBottomInset(),
+          backgroundColor: setScaffoldBackgroundColor(),
+          key: getScreenKey,
+          appBar: setAppbar(),
+          // drawer: setDrawer(),
+          body: GestureDetector(
+              onTap: () => unFocusKeyboard(), child: setBody(context)),
+          bottomNavigationBar: showBottomNavigationBar()
+              ? setBottomNavigationBar()
+              : const SizedBox(),
+        ),
+      ),
+    );
   }
 
   Stream listenForResponse(RxdartBlocState blocMixin, {Function? errorAction}) {
@@ -80,20 +72,13 @@ abstract class BaseState<T extends BaseStatefulWidget> extends State<T>
     });
   }
 
-  PreferredSizeWidget? setAppbar() {
-    return PreferredSize(
-        preferredSize:
-            Size(SizeConfig.blockSizeHorizontal * 100, SizeConfig.appBarHeight),
-        child: const SizedBox());
-  }
+  PreferredSizeWidget? setAppbar();
 
   // Widget? setDrawer() {
   //   return const AppDrawer();
   // }
-  Widget? setBottomNavigationBar() {
-    return const NavBarWidget(
-      naveBarItemList: [],
-    );
+  Widget? setBottomNavigationBar(){
+    return null;
   }
 
   bool showBottomNavigationBar() {
@@ -116,16 +101,12 @@ abstract class BaseState<T extends BaseStatefulWidget> extends State<T>
     return true;
   }
 
-  String setScaffoldBackgroundImage() {
-    return 'AppAssets.splashBg';
-  }
-
-  bool hasScaffoldBackgroundImage() {
-    return false;
+  String? setScaffoldBackgroundImage() {
+    return null;
   }
 
   Color setScaffoldBackgroundColor() {
-    return AppColors.whiteColor;
+    return Colors.white;
   }
 
   setOnBack() {}
