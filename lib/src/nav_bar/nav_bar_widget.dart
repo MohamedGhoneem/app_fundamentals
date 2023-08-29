@@ -8,7 +8,6 @@ import 'nav_bar_bloc.dart';
 ///==========================================================
 ///
 class NavBarWidget extends StatelessWidget {
-  final List<NavBarItem> naveBarItemList;
   final double height;
   final double? iconHeight;
   final double? iconWidth;
@@ -20,15 +19,14 @@ class NavBarWidget extends StatelessWidget {
 
   const NavBarWidget(
       {Key? key,
-      required this.naveBarItemList,
-      required this.height,
-      this.iconHeight,
-      this.iconWidth,
-      required this.textFontSize,
-      required this.background,
-      required this.borderColor,
-      required this.selectedColor,
-      required this.unSelectedColor})
+        required this.height,
+        this.iconHeight,
+        this.iconWidth,
+        required this.textFontSize,
+        required this.background,
+        required this.borderColor,
+        required this.selectedColor,
+        required this.unSelectedColor})
       : super(key: key);
 
   @override
@@ -36,7 +34,7 @@ class NavBarWidget extends StatelessWidget {
     return Container(
       height: height + MediaQuery.of(context).viewPadding.bottom,
       padding:
-          EdgeInsets.only(bottom: MediaQuery.of(context).viewPadding.bottom),
+      EdgeInsets.only(bottom: MediaQuery.of(context).viewPadding.bottom),
       decoration: BoxDecoration(
           color: background,
           border: Border(top: BorderSide(color: borderColor, width: .7))),
@@ -46,12 +44,12 @@ class NavBarWidget extends StatelessWidget {
             return Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                for (int i = 0; i > naveBarItemList.length; i++)
+                for (int i = 0; i < navBarBloc.naveBarItemList.length; i++)
                   Expanded(
                       child: navBarItem(
                           index: i,
-                          iconPath: naveBarItemList[i].iconPath,
-                          title: naveBarItemList[i].title,
+                          iconPath: navBarBloc.naveBarItemList[i].iconPath,
+                          title: navBarBloc.naveBarItemList[i].title,
                           color: snapshot.data == i
                               ? selectedColor
                               : unSelectedColor)),
@@ -63,10 +61,10 @@ class NavBarWidget extends StatelessWidget {
 
   Widget navBarItem(
       {required int index,
-      required String? iconPath,
-      String? title,
-      required Color color,
-      TextStyle? style}) {
+        required String? iconPath,
+        String? title,
+        required Color color,
+        TextStyle? style}) {
     return InkWell(
       onTap: () {
         navBarBloc.pickItem(index);

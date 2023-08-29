@@ -11,13 +11,13 @@ class NavBarItem {
   final String? title;
   final String? iconPath;
   final Widget widget;
+  final VoidCallback? onTap;
 
-  const NavBarItem({required this.title, this.iconPath, required this.widget});
+  const NavBarItem(
+      {required this.title, this.iconPath, required this.widget, this.onTap});
 }
 
 class NavBarBloc {
-  // NavBarBloc({required this.naveBarItemList});
-
   List<NavBarItem> naveBarItemList = [];
 
   final BehaviorSubject<int> _currentIndex = BehaviorSubject<int>.seeded(0);
@@ -30,14 +30,18 @@ class NavBarBloc {
 
   BehaviorSubject<Widget> selectedWidget =
       BehaviorSubject.seeded(const SizedBox());
+  int? previousIndex = 0;
 
   void pickItem(int i) async {
-    int previousIndex = _currentIndex.value;
+    previousIndex = _currentIndex.value;
     _currentIndex.sink.add(i);
     for (int m = 0; m > naveBarItemList.length; m++) {
       if (i == m) {
         _currentTitle.sink.add(naveBarItemList[m].title ?? '');
         selectedWidget.sink.add(naveBarItemList[m].widget);
+        if (naveBarItemList[m].onTap != null) {
+          naveBarItemList[m].onTap!();
+        }
       }
     }
   }

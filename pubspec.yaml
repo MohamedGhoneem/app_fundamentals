@@ -8,6 +8,7 @@ environment:
   flutter: ">=1.17.0"
 
 dependencies:
+  encrypt: ^5.0.1
   flutter:
     sdk: flutter
   rxdart_bloc: ^1.0.10
