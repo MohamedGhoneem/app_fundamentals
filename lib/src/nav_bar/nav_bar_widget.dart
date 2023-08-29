@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../widgets/app_image.dart';
 import '../widgets/app_text.dart';
 import 'nav_bar_bloc.dart';
 
@@ -15,27 +14,22 @@ class NavBarWidget extends StatelessWidget {
   final Color selectedColor;
   final Color unSelectedColor;
 
-  const NavBarWidget({Key? key,
-    required this.height,
-    required this.textFontSize,
-    required this.background,
-    required this.borderColor,
-    required this.selectedColor,
-    required this.unSelectedColor})
+  const NavBarWidget(
+      {Key? key,
+      required this.height,
+      required this.textFontSize,
+      required this.background,
+      required this.borderColor,
+      required this.selectedColor,
+      required this.unSelectedColor})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: height + MediaQuery
-          .of(context)
-          .viewPadding
-          .bottom,
+      height: height + MediaQuery.of(context).viewPadding.bottom,
       padding:
-      EdgeInsets.only(bottom: MediaQuery
-          .of(context)
-          .viewPadding
-          .bottom),
+          EdgeInsets.only(bottom: MediaQuery.of(context).viewPadding.bottom),
       decoration: BoxDecoration(
           color: background,
           border: Border(top: BorderSide(color: borderColor, width: .7))),
@@ -49,9 +43,9 @@ class NavBarWidget extends StatelessWidget {
                   Expanded(
                       child: navBarItem(
                           index: i,
-                          icon: snapshot.data == i ? navBarBloc
-                              .naveBarItemList[i].selectedIcon : navBarBloc
-                              .naveBarItemList[i].unSelectedIcon,
+                          icon: snapshot.data == i
+                              ? navBarBloc.naveBarItemList[i].selectedIcon
+                              : navBarBloc.naveBarItemList[i].unSelectedIcon,
                           title: navBarBloc.naveBarItemList[i].title,
                           color: snapshot.data == i
                               ? selectedColor
@@ -76,12 +70,6 @@ class NavBarWidget extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           if (icon != null) Flexible(child: icon),
-          // AppImage(
-          //   path: iconPath,
-          //   height: iconHeight ?? 18,
-          //   width: iconWidth ?? 18,
-          //   color: color,
-          // ),
           if (icon != null) const SizedBox(height: 4),
           AppText(
             label: title ?? '',
