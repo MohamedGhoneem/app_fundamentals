@@ -75,7 +75,7 @@ class NavBarWidget extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          if (icon != null) icon,
+          if (icon != null) Flexible(child: icon),
           // AppImage(
           //   path: iconPath,
           //   height: iconHeight ?? 18,
