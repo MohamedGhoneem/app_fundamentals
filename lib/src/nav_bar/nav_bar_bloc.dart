@@ -9,12 +9,13 @@ import 'package:rxdart_bloc/rxdart_bloc.dart';
 
 class NavBarItem {
   final String? title;
-  final Widget? icon;
+  final Widget? selectedIcon;
+  final Widget? unSelectedIcon;
   final Widget widget;
   final VoidCallback? onTap;
 
   const NavBarItem(
-      {required this.title, this.icon, required this.widget, this.onTap});
+      {required this.title, this.selectedIcon, this.unSelectedIcon, required this.widget, this.onTap});
 }
 
 class NavBarBloc {

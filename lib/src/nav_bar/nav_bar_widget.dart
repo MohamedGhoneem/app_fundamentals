@@ -15,22 +15,27 @@ class NavBarWidget extends StatelessWidget {
   final Color selectedColor;
   final Color unSelectedColor;
 
-  const NavBarWidget(
-      {Key? key,
-      required this.height,
-      required this.textFontSize,
-      required this.background,
-      required this.borderColor,
-      required this.selectedColor,
-      required this.unSelectedColor})
+  const NavBarWidget({Key? key,
+    required this.height,
+    required this.textFontSize,
+    required this.background,
+    required this.borderColor,
+    required this.selectedColor,
+    required this.unSelectedColor})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: height + MediaQuery.of(context).viewPadding.bottom,
+      height: height + MediaQuery
+          .of(context)
+          .viewPadding
+          .bottom,
       padding:
-          EdgeInsets.only(bottom: MediaQuery.of(context).viewPadding.bottom),
+      EdgeInsets.only(bottom: MediaQuery
+          .of(context)
+          .viewPadding
+          .bottom),
       decoration: BoxDecoration(
           color: background,
           border: Border(top: BorderSide(color: borderColor, width: .7))),
@@ -44,7 +49,9 @@ class NavBarWidget extends StatelessWidget {
                   Expanded(
                       child: navBarItem(
                           index: i,
-                          icon: navBarBloc.naveBarItemList[i].icon,
+                          icon: snapshot.data == i ? navBarBloc
+                              .naveBarItemList[i].selectedIcon : navBarBloc
+                              .naveBarItemList[i].unSelectedIcon,
                           title: navBarBloc.naveBarItemList[i].title,
                           color: snapshot.data == i
                               ? selectedColor
