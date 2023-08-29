@@ -77,7 +77,7 @@ abstract class BaseState<T extends BaseStatefulWidget> extends State<T>
   // Widget? setDrawer() {
   //   return const AppDrawer();
   // }
-  Widget? setBottomNavigationBar(){
+  Widget? setBottomNavigationBar() {
     return null;
   }
 

@@ -10,13 +10,12 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  rxdart_bloc: ^1.0.8
+  rxdart_bloc: ^1.0.10
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^2.0.0
-  webview_flutter:
 
 
 

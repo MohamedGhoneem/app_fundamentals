@@ -155,29 +155,29 @@ class AppTextFormFieldItem extends StatelessWidget {
                   borderSide: BorderSide(width: 1, color: labelFontColor))
               : OutlineInputBorder(
                   borderSide: BorderSide(width: 1, color: borderColor),
-                  borderRadius:
-                      borderRadius ?? const BorderRadius.all(Radius.circular(4))),
+                  borderRadius: borderRadius ??
+                      const BorderRadius.all(Radius.circular(4))),
           border: showUnderLine == true
               ? UnderlineInputBorder(
                   borderSide: BorderSide(width: 1, color: labelFontColor))
               : OutlineInputBorder(
                   borderSide: BorderSide(width: 1, color: borderColor),
-                  borderRadius:
-                      borderRadius ?? const BorderRadius.all(Radius.circular(4))),
+                  borderRadius: borderRadius ??
+                      const BorderRadius.all(Radius.circular(4))),
           errorBorder: showUnderLine == true
               ? const UnderlineInputBorder(
                   borderSide: BorderSide(width: 1, color: Colors.red))
               : OutlineInputBorder(
                   borderSide: const BorderSide(width: 1, color: Colors.red),
-                  borderRadius:
-                      borderRadius ?? const BorderRadius.all(Radius.circular(4))),
+                  borderRadius: borderRadius ??
+                      const BorderRadius.all(Radius.circular(4))),
           focusedErrorBorder: showUnderLine == true
               ? const UnderlineInputBorder(
                   borderSide: BorderSide(width: 1, color: Colors.red))
               : OutlineInputBorder(
                   borderSide: const BorderSide(width: 1, color: Colors.red),
-                  borderRadius:
-                      borderRadius ?? const BorderRadius.all(Radius.circular(4))),
+                  borderRadius: borderRadius ??
+                      const BorderRadius.all(Radius.circular(4))),
           contentPadding: contentPadding ?? const EdgeInsets.all(16),
           // labelStyle: TextStyle(
           //     fontSize: SizeConfig.textFontSize, color: labelFontColor),
@@ -251,12 +251,10 @@ class AppTextFormFieldItem extends StatelessWidget {
                 ? const UnderlineInputBorder(
                     borderSide: BorderSide(width: 1, color: Colors.red))
                 : OutlineInputBorder(
-                    borderSide:
-                        const BorderSide(width: 1, color: Colors.red),
-                borderRadius:borderRadius?? const BorderRadius.all(Radius.circular(4))),
-
-            contentPadding:
-                contentPadding ?? const EdgeInsets.all(16),
+                    borderSide: const BorderSide(width: 1, color: Colors.red),
+                    borderRadius: borderRadius ??
+                        const BorderRadius.all(Radius.circular(4))),
+            contentPadding: contentPadding ?? const EdgeInsets.all(16),
             // labelStyle: TextStyle(
             //     fontSize: SizeConfig.textFontSize, color: labelFontColor),
             floatingLabelBehavior: FloatingLabelBehavior.always,
@@ -268,9 +266,7 @@ class AppTextFormFieldItem extends StatelessWidget {
             ),
             errorText:
                 subject.hasError ? subject.stream.error.toString() : null,
-            errorStyle: const TextStyle(
-                fontSize: 10,
-                color: Colors.red),
+            errorStyle: const TextStyle(fontSize: 10, color: Colors.red),
             isCollapsed: true,
             isDense: true,
             counterText: ''),

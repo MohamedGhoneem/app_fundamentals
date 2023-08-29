@@ -44,7 +44,7 @@ class AppDropdown<T> extends StatelessWidget {
       value: selectedItem,
       validator: validator,
       // alignment: Alignment.bottomRight,
-      dropdownColor: dropdownColor??Colors.grey,
+      dropdownColor: dropdownColor ?? Colors.grey,
       hint: AppText(
         label: hint ?? '',
         style: style ??
@@ -53,10 +53,11 @@ class AppDropdown<T> extends StatelessWidget {
               color: Colors.black,
             ),
       ),
-      style: style??const TextStyle(
-        fontSize: 14,
-        color: Colors.black,
-      ),
+      style: style ??
+          const TextStyle(
+            fontSize: 14,
+            color: Colors.black,
+          ),
       autovalidateMode: AutovalidateMode.onUserInteraction,
       decoration: const InputDecoration(
           border: InputBorder.none,
@@ -65,7 +66,7 @@ class AppDropdown<T> extends StatelessWidget {
           const Icon(
             Icons.keyboard_arrow_down,
             size: 15,
-            color: Colors.black ,
+            color: Colors.black,
           ),
       onTap: onTap,
       items: items.map((T data) {

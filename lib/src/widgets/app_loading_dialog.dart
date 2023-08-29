@@ -7,7 +7,7 @@ import 'app_loading_widget.dart';
 ///==========================================================
 ///
 class AppLoadingDialog extends StatefulWidget {
-  bool shown=false;
+  bool shown = false;
   late BuildContext context;
 
   bool isShowing() {
@@ -51,4 +51,5 @@ class AppLoadingDialogState extends State<AppLoadingDialog> {
     widget.shown = false;
   }
 }
- AppLoadingDialog appLoadingDialog = AppLoadingDialog();
+
+AppLoadingDialog appLoadingDialog = AppLoadingDialog();

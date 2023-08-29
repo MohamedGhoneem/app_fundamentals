@@ -1,4 +1,9 @@
+///==========================================================
+/// CREATED BY MOHAMED GHONEIM 01/01/2022 TEL// +201064626369
+///==========================================================
+///
 library app_core;
+
 export 'src/nav_bar/nav_bar_bloc.dart';
 export 'src/nav_bar/nav_bar_widget.dart';
 export 'src/widgets/app_back_icon.dart';
@@ -21,8 +26,4 @@ export 'src/widgets/app_web_view.dart';
 export 'src/widgets/app_bordered_dropdown.dart';
 export 'src/base_stateful_widget.dart';
 export 'src/no_splash_factory.dart';
-export 'package:webview_flutter/webview_flutter.dart';
-export  'package:webview_flutter_wkwebview/webview_flutter_wkwebview.dart';
-export  'package:webview_flutter_android/webview_flutter_android.dart';
-
 

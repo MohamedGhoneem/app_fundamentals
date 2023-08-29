@@ -22,8 +22,8 @@ class NavBarWidget extends StatelessWidget {
       {Key? key,
       required this.naveBarItemList,
       required this.height,
-       this.iconHeight,
-       this.iconWidth,
+      this.iconHeight,
+      this.iconWidth,
       required this.textFontSize,
       required this.background,
       required this.borderColor,
@@ -74,20 +74,20 @@ class NavBarWidget extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-         if( iconPath!=null)  AppImage(
-            path: iconPath,
-            height: iconHeight??18,
-            width: iconWidth??18,
-            color: color,
-          ),
-          if( iconPath!=null)  const SizedBox(
-            height: 4,
-          ),
+          if (iconPath != null)
+            AppImage(
+              path: iconPath,
+              height: iconHeight ?? 18,
+              width: iconWidth ?? 18,
+              color: color,
+            ),
+          if (iconPath != null)
+            const SizedBox(
+              height: 4,
+            ),
           AppText(
             label: title ?? '',
-            style: style ??
-                TextStyle(
-                    fontSize: textFontSize, color: color),
+            style: style ?? TextStyle(fontSize: textFontSize, color: color),
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
           )

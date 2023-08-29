@@ -18,7 +18,7 @@ class NavBarItem {
 class NavBarBloc {
   // NavBarBloc({required this.naveBarItemList});
 
-   List<NavBarItem> naveBarItemList=[];
+  List<NavBarItem> naveBarItemList = [];
 
   final BehaviorSubject<int> _currentIndex = BehaviorSubject<int>.seeded(0);
 
@@ -47,4 +47,5 @@ class NavBarBloc {
     _currentTitle.close();
   }
 }
+
 final NavBarBloc navBarBloc = NavBarBloc();

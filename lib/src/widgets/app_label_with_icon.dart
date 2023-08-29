@@ -27,9 +27,7 @@ class AppLabelWithIcon extends StatelessWidget {
       children: [
         AppText(
           label: label,
-          style: TextStyle(
-              fontSize:
-              fontSize ?? 13,color: labelColor),
+          style: TextStyle(fontSize: fontSize ?? 13, color: labelColor),
         ),
         const SizedBox(width: 4),
         icon,
