@@ -9,8 +9,6 @@ import 'nav_bar_bloc.dart';
 ///
 class NavBarWidget extends StatelessWidget {
   final double height;
-  final double? iconHeight;
-  final double? iconWidth;
   final double textFontSize;
   final Color background;
   final Color borderColor;
@@ -19,14 +17,12 @@ class NavBarWidget extends StatelessWidget {
 
   const NavBarWidget(
       {Key? key,
-        required this.height,
-        this.iconHeight,
-        this.iconWidth,
-        required this.textFontSize,
-        required this.background,
-        required this.borderColor,
-        required this.selectedColor,
-        required this.unSelectedColor})
+      required this.height,
+      required this.textFontSize,
+      required this.background,
+      required this.borderColor,
+      required this.selectedColor,
+      required this.unSelectedColor})
       : super(key: key);
 
   @override
@@ -34,7 +30,7 @@ class NavBarWidget extends StatelessWidget {
     return Container(
       height: height + MediaQuery.of(context).viewPadding.bottom,
       padding:
-      EdgeInsets.only(bottom: MediaQuery.of(context).viewPadding.bottom),
+          EdgeInsets.only(bottom: MediaQuery.of(context).viewPadding.bottom),
       decoration: BoxDecoration(
           color: background,
           border: Border(top: BorderSide(color: borderColor, width: .7))),
@@ -48,7 +44,7 @@ class NavBarWidget extends StatelessWidget {
                   Expanded(
                       child: navBarItem(
                           index: i,
-                          iconPath: navBarBloc.naveBarItemList[i].iconPath,
+                          icon: navBarBloc.naveBarItemList[i].icon,
                           title: navBarBloc.naveBarItemList[i].title,
                           color: snapshot.data == i
                               ? selectedColor
@@ -59,12 +55,12 @@ class NavBarWidget extends StatelessWidget {
     );
   }
 
-  Widget navBarItem(
-      {required int index,
-        required String? iconPath,
-        String? title,
-        required Color color,
-        TextStyle? style}) {
+  Widget navBarItem({
+    required int index,
+    required Widget? icon,
+    required String? title,
+    required Color color,
+  }) {
     return InkWell(
       onTap: () {
         navBarBloc.pickItem(index);
@@ -72,20 +68,17 @@ class NavBarWidget extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          if (iconPath != null)
-            AppImage(
-              path: iconPath,
-              height: iconHeight ?? 18,
-              width: iconWidth ?? 18,
-              color: color,
-            ),
-          if (iconPath != null)
-            const SizedBox(
-              height: 4,
-            ),
+          if (icon != null) icon,
+          // AppImage(
+          //   path: iconPath,
+          //   height: iconHeight ?? 18,
+          //   width: iconWidth ?? 18,
+          //   color: color,
+          // ),
+          if (icon != null) const SizedBox(height: 4),
           AppText(
             label: title ?? '',
-            style: style ?? TextStyle(fontSize: textFontSize, color: color),
+            style: TextStyle(fontSize: textFontSize, color: color),
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
           )
