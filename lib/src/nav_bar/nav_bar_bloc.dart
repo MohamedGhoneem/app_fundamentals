@@ -28,14 +28,13 @@ class NavBarBloc {
 
   Stream<String> get titleStream => _currentTitle.stream;
 
-  BehaviorSubject<Widget> selectedWidget =
-      BehaviorSubject.seeded(const SizedBox());
+  BehaviorSubject<Widget> selectedWidget = BehaviorSubject();
   int? previousIndex = 0;
 
   void pickItem(int i) async {
     previousIndex = _currentIndex.value;
     _currentIndex.sink.add(i);
-    for (int m = 0; m > naveBarItemList.length; m++) {
+    for (int m = 0; m < naveBarItemList.length; m++) {
       if (i == m) {
         _currentTitle.sink.add(naveBarItemList[m].title ?? '');
         selectedWidget.sink.add(naveBarItemList[m].widget);
