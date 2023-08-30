@@ -3,7 +3,7 @@ import 'package:encrypt/encrypt.dart';
 
 class Encryptor {
   // static const plainText = 'Sensitive data to be encrypted';
-  final _key = Key.fromUtf8('TWOBEGHONEIMENCY');
+  final _key = Key.fromUtf8('TWOPGHONEIMENCRY');
   final _iv = IV.fromLength(16);
   late final _encrypter; // Initialization vector (IV) for AES
   init() {
