@@ -12,16 +12,18 @@ class AppEncryptor {
     encrypter = Encrypter(AES(key));
   }
 
-  encryptData(data) {
+  String? encryptData(data) {
     // Encrypt data
     final encryptedText = encrypter.encrypt(data, iv: iv);
     log('Encrypted text: ${encryptedText.base64}');
+    return encryptedText;
   }
 
-  decryptData(encryptedText) {
+  String? decryptData(encryptedText) {
     // Decrypt data
     final decryptedText = encrypter.decrypt(encryptedText, iv: iv);
     log('Decrypted text: $decryptedText');
+    return decryptedText;
   }
 
   encryptFile() {
