@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import '../app_core.dart';
 import 'nav_bar/nav_bar_widget.dart';
 import 'package:rxdart_bloc/rxdart_bloc.dart';
 
@@ -16,8 +17,6 @@ abstract class BaseStatefulWidget extends StatefulWidget {
 abstract class BaseState<T extends BaseStatefulWidget> extends State<T>
     with RouteAware {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
-
-  bool isOffline = false;
 
   @override
   void initState() {
@@ -44,7 +43,7 @@ abstract class BaseState<T extends BaseStatefulWidget> extends State<T>
           backgroundColor: setScaffoldBackgroundColor(),
           key: getScreenKey,
           appBar: setAppbar(),
-          // drawer: setDrawer(),
+          drawer: setDrawer(),
           body: GestureDetector(
               onTap: () => unFocusKeyboard(), child: setBody(context)),
           bottomNavigationBar: showBottomNavigationBar()
@@ -55,28 +54,35 @@ abstract class BaseState<T extends BaseStatefulWidget> extends State<T>
     );
   }
 
-  Stream listenForResponse(RxdartBlocState blocMixin, {Function? errorAction}) {
-    _listenForError(blocMixin, errorAction: errorAction);
+  Widget setBody(BuildContext context);
+
+  Stream listenForResponse(RxdartBlocState blocMixin,
+      {Function? errorAction, AppDialog? errorDialog}) {
+    _listenForError(blocMixin,
+        errorAction: errorAction, errorDialog: errorDialog);
     return blocMixin.successStream;
   }
 
-  _listenForError(RxdartBlocState blocMixin, {Function? errorAction}) {
-    blocMixin.errorStream.listen((data) {
-      // hideDialog();
-      // ErrorModel error = data as ErrorModel;
-      // String? errorMessage = error.errors?.error;
-      // showAppDialog(
-      //     title: AppLocalizations.of(context).alert,
-      //     errorMessage: errorMessage ?? '',
-      //     okButtonTitle: AppLocalizations.of(context).ok);
+  _listenForError(RxdartBlocState blocMixin,
+      {Function? errorAction, AppDialog? errorDialog}) {
+    blocMixin.errorStream.listen((data) async {
+      if (errorDialog != null) {
+        await showDialog(
+            context: context,
+            barrierDismissible: false,
+            builder: (BuildContext context) => errorDialog);
+      }
     });
   }
 
-  PreferredSizeWidget? setAppbar();
+  PreferredSizeWidget? setAppbar() {
+    return null;
+  }
 
-  // Widget? setDrawer() {
-  //   return const AppDrawer();
-  // }
+  Widget? setDrawer() {
+    return null;
+  }
+
   Widget? setBottomNavigationBar() {
     return null;
   }
@@ -109,7 +115,7 @@ abstract class BaseState<T extends BaseStatefulWidget> extends State<T>
     return Colors.white;
   }
 
-  setOnBack() {}
+  setOnBack() => setOnWillPop();
 
   Future<bool> setOnWillPop() {
     Navigator.pop(context);
@@ -124,27 +130,45 @@ abstract class BaseState<T extends BaseStatefulWidget> extends State<T>
     return _scaffoldKey;
   }
 
-  Widget setBody(BuildContext context);
+  unFocusKeyboard() {
+    if (FocusManager.instance.primaryFocus?.hasPrimaryFocus ?? false) {
+      FocusManager.instance.primaryFocus?.unfocus();
+    }
+  }
 
   @override
   void dispose() {
+    routeObserver.unsubscribe(this);
     super.dispose();
   }
 
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
+    routeObserver.subscribe(this, ModalRoute.of(context) as PageRoute);
   }
 
-  // Called when the top route has been popped off, and the current route shows up.
+  @override
+  void didPush() {
+    final route = ModalRoute.of(context)?.settings.name;
+    print('didPush route: $route');
+  }
+
+  @override
   void didPopNext() {
-    debugPrint("didPopNext $runtimeType");
-    setState(() {});
+    final route = ModalRoute.of(context)?.settings.name;
+    print('didPopNext route: $route');
   }
 
-  unFocusKeyboard() {
-    if (FocusManager.instance.primaryFocus?.hasPrimaryFocus ?? false) {
-      FocusManager.instance.primaryFocus?.unfocus();
-    }
+  @override
+  void didPushNext() {
+    final route = ModalRoute.of(context)?.settings.name;
+    print('didPushNext route: $route');
+  }
+
+  @override
+  void didPop() {
+    final route = ModalRoute.of(context)?.settings.name;
+    print('didPop route: $route');
   }
 }
