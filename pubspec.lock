@@ -174,10 +174,11 @@ packages:
   network_implementation:
     dependency: "direct main"
     description:
-      name: network_implementation
-      sha256: "8c3d8d1f7247a77e3fedc11a4dda13799bd7352319ee19bff5d231d4bf98e3a7"
-      url: "https://pub.dev"
-    source: hosted
+      path: "."
+      ref: HEAD
+      resolved-ref: "163a35cc8db84583defe12024253139cb3558720"
+      url: "https://github.com/MohamedGhoneem/network_implementation.git"
+    source: git
     version: "0.0.1"
   path:
     dependency: transitive
