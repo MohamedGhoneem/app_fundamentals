@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import '../app_core.dart';
-import 'nav_bar/nav_bar_widget.dart';
+import '../app_fundamentals.dart';
 import 'package:rxdart_bloc/rxdart_bloc.dart';
 
 ///==========================================================

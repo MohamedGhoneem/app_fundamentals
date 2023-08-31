@@ -1,5 +1,5 @@
 // import 'package:flutter/material.dart';
-// import 'package:app_core/app_core.dart';
+// import 'package:app_core/app_fundamentals.dart';
 // export 'package:webview_flutter/webview_flutter.dart';
 // export  'package:webview_flutter_wkwebview/webview_flutter_wkwebview.dart';
 // export  'package:webview_flutter_android/webview_flutter_android.dart';
