@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 export 'package:webview_flutter/webview_flutter.dart';
-export  'package:webview_flutter_wkwebview/webview_flutter_wkwebview.dart';
-export  'package:webview_flutter_android/webview_flutter_android.dart';
+// export  'package:webview_flutter_wkwebview/webview_flutter_wkwebview.dart';
+// export  'package:webview_flutter_android/webview_flutter_android.dart';
 import '../../app_fundamentals.dart';
 import 'some_thing_went_wrong_screen.dart';
 
@@ -45,14 +45,14 @@ class _AppWebViewState extends BaseState<AppWebView> {
     super.initState();
     headers?["lang"] = widget.currentLanguage ?? 'en';
     // #docregion platform_features
-    if (WebViewPlatform.instance is WebKitWebViewPlatform) {
-      params = WebKitWebViewControllerCreationParams(
-        allowsInlineMediaPlayback: true,
-        mediaTypesRequiringUserAction: const <PlaybackMediaTypes>{},
-      );
-    } else {
+    // if (WebViewPlatform.instance is WebKitWebViewPlatform) {
+    //   params = WebKitWebViewControllerCreationParams(
+    //     allowsInlineMediaPlayback: true,
+    //     mediaTypesRequiringUserAction: const <PlaybackMediaTypes>{},
+    //   );
+    // } else {
       params = const PlatformWebViewControllerCreationParams();
-    }
+    // }
 
     final WebViewController controller =
         WebViewController.fromPlatformCreationParams(params);
@@ -108,11 +108,11 @@ Page resource error:
       ..loadRequest(Uri.parse(widget.url), headers: headers!);
 
     // #docregion platform_features
-    if (controller.platform is AndroidWebViewController) {
-      AndroidWebViewController.enableDebugging(true);
-      (controller.platform as AndroidWebViewController)
-          .setMediaPlaybackRequiresUserGesture(false);
-    }
+    // if (controller.platform is AndroidWebViewController) {
+    //   AndroidWebViewController.enableDebugging(true);
+    //   (controller.platform as AndroidWebViewController)
+    //       .setMediaPlaybackRequiresUserGesture(false);
+    // }
     // #enddocregion platform_features
 
     _controller = controller;
