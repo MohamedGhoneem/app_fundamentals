@@ -177,7 +177,7 @@
     },
     {
       "name": "rxdart_bloc",
-      "rootUri": "file:///Users/AmrMostafa/.pub-cache/hosted/pub.dev/rxdart_bloc-1.0.10",
+      "rootUri": "file:///Users/AmrMostafa/.pub-cache/hosted/pub.dev/rxdart_bloc-1.0.11",
       "packageUri": "lib/",
       "languageVersion": "3.0"
     },
@@ -266,7 +266,7 @@
       "languageVersion": "3.0"
     }
   ],
-  "generated": "2023-09-11T06:05:18.203036Z",
+  "generated": "2023-09-11T08:33:51.712898Z",
   "generator": "pub",
   "generatorVersion": "3.0.6"
 }
