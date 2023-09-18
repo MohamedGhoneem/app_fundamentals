@@ -7,7 +7,7 @@ import '../../app_fundamentals.dart';
 /// CREATED BY MOHAMED GHONEIM 01/01/2022 TEL// +201064626369
 ///==========================================================
 ///
-class AppBackIcon extends StatelessWidget {
+class AppBackButton extends StatelessWidget {
   final String? title;
   final Color? backgroundColor;
   final Color? borderColor;
@@ -18,7 +18,7 @@ class AppBackIcon extends StatelessWidget {
   final Widget? icon;
   final String? currentLanguage;
 
-  const AppBackIcon({
+  const AppBackButton({
     Key? key,
     this.title,
     this.backgroundColor,

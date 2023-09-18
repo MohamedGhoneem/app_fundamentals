@@ -166,7 +166,7 @@ Page resource error:
                   borderColor: Colors.transparent,
                   backgroundColor: Colors.transparent,
                   alignment: AppButtonAlign.start,
-                  icon:  AppBackIcon(currentLanguage: widget.currentLanguage,),
+                  icon:  AppBackButton(currentLanguage: widget.currentLanguage,),
                   onTap: () => super.setOnWillPop()),
             ],
           )),
