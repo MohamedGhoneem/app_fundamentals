@@ -8,24 +8,13 @@ import '../../app_fundamentals.dart';
 ///==========================================================
 ///
 class AppBackButton extends StatelessWidget {
-  final String? title;
-  final Color? backgroundColor;
-  final Color? borderColor;
-  final double? width;
-  final double? height;
-  final double? radius;
+
   final VoidCallback? onTap;
   final Widget? icon;
   final String? currentLanguage;
 
   const AppBackButton({
     Key? key,
-    this.title,
-    this.backgroundColor,
-    this.borderColor,
-    this.width,
-    this.height,
-    this.radius,
     this.onTap,
     this.icon,
     required this.currentLanguage,
@@ -33,17 +22,11 @@ class AppBackButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AppButton(
-      title: '',
-      backgroundColor: backgroundColor ?? Colors.transparent,
-      borderColor: borderColor ?? Colors.transparent,
-      width: width,
-      height: height,
-      radius: radius,
+    return InkWell(
       onTap: onTap,
-      icon: Transform(
+      child: Center(child: Transform(
           transform: Matrix4.rotationY(currentLanguage == 'en' ? 0 : math.pi),
-          child: icon ?? const Icon(Icons.arrow_back_ios)),
+          child: icon ?? const Icon(Icons.arrow_back_ios))),
     );
   }
 }
