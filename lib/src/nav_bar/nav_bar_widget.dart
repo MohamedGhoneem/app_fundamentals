@@ -103,7 +103,7 @@ class NavBarWidget extends StatelessWidget {
                 margin: const EdgeInsets.symmetric(horizontal: 8),
                 color: topColor,
               ),
-             const SizedBox(height: 4),
+              const SizedBox(height: 4),
               if (icon != null) Flexible(child: icon),
               if (icon != null) const SizedBox(height: 4),
               AppText(
