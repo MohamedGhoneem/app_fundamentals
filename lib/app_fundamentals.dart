@@ -6,7 +6,6 @@ library app_core;
 
 export 'src/nav_bar/nav_bar_bloc.dart';
 export 'src/nav_bar/nav_bar_widget.dart';
-export 'src/widgets/app_back_icon.dart';
 export 'src/widgets/app_bottom_sheet.dart';
 export 'src/widgets/app_button.dart';
 export 'src/widgets/app_container_with_label.dart';
