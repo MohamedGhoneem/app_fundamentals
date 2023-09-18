@@ -20,13 +20,13 @@ class AppWebView extends BaseStatefulWidget {
 
   const AppWebView(
       {Key? key,
-      required this.title,
-      required this.url,
-      this.currentLanguage,
-      this.appBarHeight,
-      this.image,
-      this.labelString,
-      this.errorString})
+        required this.title,
+        required this.url,
+        this.currentLanguage,
+        this.appBarHeight,
+        this.image,
+        this.labelString,
+        this.errorString})
       : super(key: key);
 
   @override
@@ -51,11 +51,11 @@ class _AppWebViewState extends BaseState<AppWebView> {
     //     mediaTypesRequiringUserAction: const <PlaybackMediaTypes>{},
     //   );
     // } else {
-      params = const PlatformWebViewControllerCreationParams();
+    params = const PlatformWebViewControllerCreationParams();
     // }
 
     final WebViewController controller =
-        WebViewController.fromPlatformCreationParams(params);
+    WebViewController.fromPlatformCreationParams(params);
     // #enddocregion platform_features
 
     controller
@@ -122,23 +122,23 @@ Page resource error:
   Widget setBody(BuildContext context) {
     return isError
         ? Center(
-            child: SomeThingWentWrongScreen(
-            image: widget.image ??
-                const Center(
-                    child: Icon(
-                  Icons.error,
-                  color: Colors.red,
-                )),
-            labelString: widget.labelString ?? 'Error',
-            errorString: widget.errorString ?? 'Some Thing Went Wrong',
-            retry: () {
-              setState(() {
-                isError = false;
-                _controller.loadRequest(Uri.parse(widget.url),
-                    headers: headers!);
-              });
-            },
-          ))
+        child: SomeThingWentWrongScreen(
+          image: widget.image ??
+              const Center(
+                  child: Icon(
+                    Icons.error,
+                    color: Colors.red,
+                  )),
+          labelString: widget.labelString ?? 'Error',
+          errorString: widget.errorString ?? 'Some Thing Went Wrong',
+          retry: () {
+            setState(() {
+              isError = false;
+              _controller.loadRequest(Uri.parse(widget.url),
+                  headers: headers!);
+            });
+          },
+        ))
         : WebViewWidget(controller: _controller);
   }
 
@@ -146,7 +146,7 @@ Page resource error:
   PreferredSizeWidget? setAppbar() {
     return PreferredSize(
       preferredSize:
-          Size(MediaQuery.of(context).size.width, widget.appBarHeight ?? 0),
+      Size(MediaQuery.of(context).size.width, widget.appBarHeight ?? 0),
       child: Container(
           width: MediaQuery.of(context).size.width,
           padding: EdgeInsets.only(
@@ -166,7 +166,7 @@ Page resource error:
                   borderColor: Colors.transparent,
                   backgroundColor: Colors.transparent,
                   alignment: AppButtonAlign.start,
-                  icon:  AppBackButton(currentLanguage: widget.currentLanguage,),
+                  icon:  const Icon(Icons.arrow_back_ios),
                   onTap: () => super.setOnWillPop()),
             ],
           )),
