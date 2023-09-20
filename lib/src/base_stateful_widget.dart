@@ -32,7 +32,7 @@ abstract class BaseState<T extends BaseStatefulWidget> extends State<T>
         decoration: setScaffoldBackgroundImage() != null
             ? BoxDecoration(
             image: DecorationImage(
-                fit: BoxFit.cover,
+                fit: BoxFit.fill,
                 image: AssetImage(setScaffoldBackgroundImage()!)))
             : const BoxDecoration(),
         child: Scaffold(
