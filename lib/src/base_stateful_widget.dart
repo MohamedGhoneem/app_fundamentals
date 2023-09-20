@@ -31,15 +31,15 @@ abstract class BaseState<T extends BaseStatefulWidget> extends State<T>
       child: Container(
         decoration: setScaffoldBackgroundImage() != null
             ? BoxDecoration(
-                image: DecorationImage(
-                    fit: BoxFit.fill,
-                    image: AssetImage(setScaffoldBackgroundImage() ?? '')))
+            image: DecorationImage(
+                fit: BoxFit.cover,
+                image: AssetImage(setScaffoldBackgroundImage()!)))
             : const BoxDecoration(),
         child: Scaffold(
           floatingActionButton: setFloatingActionButton(),
           floatingActionButtonLocation: setFloatingActionButtonLocation(),
           resizeToAvoidBottomInset: setResizeToAvoidBottomInset(),
-          backgroundColor: setScaffoldBackgroundColor(),
+          backgroundColor: setScaffoldBackgroundImage() != null ? Colors.transparent : setScaffoldBackgroundColor(),
           key: getScreenKey,
           appBar: setAppbar(),
           drawer: setDrawer(),
@@ -148,24 +148,24 @@ abstract class BaseState<T extends BaseStatefulWidget> extends State<T>
   @override
   void didPush() {
     final route = ModalRoute.of(context)?.settings.name;
-    print('didPush route: $route');
+    debugPrint('didPush route: $route');
   }
 
   @override
   void didPopNext() {
     final route = ModalRoute.of(context)?.settings.name;
-    print('didPopNext route: $route');
+    debugPrint('didPopNext route: $route');
   }
 
   @override
   void didPushNext() {
     final route = ModalRoute.of(context)?.settings.name;
-    print('didPushNext route: $route');
+    debugPrint('didPushNext route: $route');
   }
 
   @override
   void didPop() {
     final route = ModalRoute.of(context)?.settings.name;
-    print('didPop route: $route');
+    debugPrint('didPop route: $route');
   }
 }
