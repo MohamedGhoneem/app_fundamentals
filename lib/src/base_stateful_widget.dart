@@ -31,23 +31,23 @@ abstract class BaseState<T extends BaseStatefulWidget> extends State<T>
       child: Container(
         decoration: setScaffoldBackgroundImage() != null
             ? BoxDecoration(
-            image: DecorationImage(
-                fit: BoxFit.fill,
-                image: AssetImage(setScaffoldBackgroundImage()!)))
+                image: DecorationImage(
+                    fit: BoxFit.fill,
+                    image: AssetImage(setScaffoldBackgroundImage()!)))
             : const BoxDecoration(),
         child: Scaffold(
           floatingActionButton: setFloatingActionButton(),
           floatingActionButtonLocation: setFloatingActionButtonLocation(),
           resizeToAvoidBottomInset: setResizeToAvoidBottomInset(),
-          backgroundColor: setScaffoldBackgroundImage() != null ? Colors.transparent : setScaffoldBackgroundColor(),
+          backgroundColor: setScaffoldBackgroundImage() != null
+              ? Colors.transparent
+              : setScaffoldBackgroundColor(),
           key: getScreenKey,
           appBar: setAppbar(),
           drawer: setDrawer(),
           body: GestureDetector(
               onTap: () => unFocusKeyboard(), child: setBody(context)),
-          bottomNavigationBar: showBottomNavigationBar()
-              ? setBottomNavigationBar()
-              : const SizedBox(),
+          bottomNavigationBar: setBottomNavigationBar() ?? const SizedBox(),
         ),
       ),
     );
@@ -82,10 +82,6 @@ abstract class BaseState<T extends BaseStatefulWidget> extends State<T>
 
   Widget? setBottomNavigationBar() {
     return null;
-  }
-
-  bool showBottomNavigationBar() {
-    return true;
   }
 
   String setTitle() {
