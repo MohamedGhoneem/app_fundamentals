@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 export 'package:webview_flutter/webview_flutter.dart';
-// export  'package:webview_flutter_wkwebview/webview_flutter_wkwebview.dart';
-// export  'package:webview_flutter_android/webview_flutter_android.dart';
 import '../../app_fundamentals.dart';
-import 'some_thing_went_wrong_screen.dart';
 
 ///==========================================================
 /// CREATED BY MOHAMED GHONEIM 01/01/2022 TEL// +201064626369
@@ -14,8 +11,7 @@ class AppWebView extends BaseStatefulWidget {
   final String url;
   final String? currentLanguage;
   final double? appBarHeight;
-  final Widget? image;
-  final String? labelString;
+  final Widget? errorWidget;
   final String? errorString;
 
   const AppWebView(
@@ -24,8 +20,7 @@ class AppWebView extends BaseStatefulWidget {
         required this.url,
         this.currentLanguage,
         this.appBarHeight,
-        this.image,
-        this.labelString,
+        this.errorWidget,
         this.errorString})
       : super(key: key);
 
@@ -123,14 +118,13 @@ Page resource error:
     return isError
         ? Center(
         child: SomeThingWentWrongScreen(
-          image: widget.image ??
+          errorWidget: widget.errorWidget ??
               const Center(
                   child: Icon(
                     Icons.error,
                     color: Colors.red,
                   )),
-          labelString: widget.labelString ?? 'Error',
-          errorString: widget.errorString ?? 'Some Thing Went Wrong',
+          error: widget.errorString ?? 'Some Thing Went Wrong',
           retry: () {
             setState(() {
               isError = false;
@@ -173,10 +167,6 @@ Page resource error:
     );
   }
 
-  @override
-  bool showBottomNavigationBar() {
-    return false;
-  }
 
   @override
   setOnBack() {

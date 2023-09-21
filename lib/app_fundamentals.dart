@@ -26,4 +26,5 @@ export 'src/widgets/app_bordered_dropdown.dart';
 export 'src/base_stateful_widget.dart';
 export 'src/no_splash_factory.dart';
 export 'src/app_encryptor.dart';
+export 'package:rxdart_bloc/rxdart_bloc.dart';
 

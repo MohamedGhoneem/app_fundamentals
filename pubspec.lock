@@ -174,20 +174,11 @@ packages:
   network_implementation:
     dependency: "direct main"
     description:
-      path: "."
-      ref: HEAD
-      resolved-ref: "0c436aa17383660e6e6fbb71b6f049fc9832c378"
-      url: "https://github.com/MohamedGhoneem/network_implementation"
-    source: git
-    version: "0.0.3"
-  nirikshak:
-    dependency: transitive
-    description:
-      name: nirikshak
-      sha256: "9452bad32572d82811fe6ef3f39f24c9fba6d94c85c3f310173fb56526fd3e7c"
+      name: network_implementation
+      sha256: dd2775a355191fbc212a526d1a11c24348e18a9c0758c38ea6c03f8d4c0303a0
       url: "https://pub.dev"
     source: hosted
-    version: "0.1.1"
+    version: "0.0.2"
   path:
     dependency: transitive
     description:
