@@ -135,9 +135,15 @@
     },
     {
       "name": "network_implementation",
-      "rootUri": "file:///Users/AmrMostafa/.pub-cache/hosted/pub.dev/network_implementation-0.0.2",
+      "rootUri": "file:///Users/AmrMostafa/.pub-cache/hosted/pub.dev/network_implementation-0.0.4",
       "packageUri": "lib/",
       "languageVersion": "3.0"
+    },
+    {
+      "name": "nirikshak",
+      "rootUri": "file:///Users/AmrMostafa/.pub-cache/hosted/pub.dev/nirikshak-0.1.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.18"
     },
     {
       "name": "path",
@@ -260,7 +266,7 @@
       "languageVersion": "3.0"
     }
   ],
-  "generated": "2023-09-20T12:34:18.595519Z",
+  "generated": "2023-09-21T11:11:22.274336Z",
   "generator": "pub",
   "generatorVersion": "3.0.6"
 }

@@ -12,7 +12,7 @@ dependencies:
   encrypt: ^5.0.1
   flutter:
     sdk: flutter
-  network_implementation: ^0.0.2
+  network_implementation: ^0.0.4
   rxdart_bloc: ^1.0.11
   flavorizer_config: ^0.0.3
   responsive_screen_type: ^1.0.2
