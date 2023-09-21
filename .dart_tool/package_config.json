@@ -63,9 +63,9 @@
     },
     {
       "name": "encrypt",
-      "rootUri": "file:///Users/AmrMostafa/.pub-cache/hosted/pub.dev/encrypt-5.0.1",
+      "rootUri": "file:///Users/AmrMostafa/.pub-cache/hosted/pub.dev/encrypt-5.0.3",
       "packageUri": "lib/",
-      "languageVersion": "2.12"
+      "languageVersion": "2.18"
     },
     {
       "name": "fake_async",
@@ -75,7 +75,7 @@
     },
     {
       "name": "flavorizer_config",
-      "rootUri": "file:///Users/AmrMostafa/.pub-cache/hosted/pub.dev/flavorizer_config-0.0.3",
+      "rootUri": "file:///Users/AmrMostafa/.pub-cache/hosted/pub.dev/flavorizer_config-0.0.4",
       "packageUri": "lib/",
       "languageVersion": "3.0"
     },
@@ -135,7 +135,7 @@
     },
     {
       "name": "network_implementation",
-      "rootUri": "file:///Users/AmrMostafa/.pub-cache/hosted/pub.dev/network_implementation-0.0.4",
+      "rootUri": "file:///Users/AmrMostafa/.pub-cache/hosted/pub.dev/network_implementation-0.0.8",
       "packageUri": "lib/",
       "languageVersion": "3.0"
     },
@@ -243,13 +243,13 @@
     },
     {
       "name": "webview_flutter_android",
-      "rootUri": "file:///Users/AmrMostafa/.pub-cache/hosted/pub.dev/webview_flutter_android-3.9.5",
+      "rootUri": "file:///Users/AmrMostafa/.pub-cache/hosted/pub.dev/webview_flutter_android-3.10.1",
       "packageUri": "lib/",
       "languageVersion": "2.19"
     },
     {
       "name": "webview_flutter_platform_interface",
-      "rootUri": "file:///Users/AmrMostafa/.pub-cache/hosted/pub.dev/webview_flutter_platform_interface-2.5.1",
+      "rootUri": "file:///Users/AmrMostafa/.pub-cache/hosted/pub.dev/webview_flutter_platform_interface-2.6.0",
       "packageUri": "lib/",
       "languageVersion": "2.19"
     },
@@ -266,7 +266,7 @@
       "languageVersion": "3.0"
     }
   ],
-  "generated": "2023-09-21T11:11:22.274336Z",
+  "generated": "2023-09-21T12:17:16.004231Z",
   "generator": "pub",
   "generatorVersion": "3.0.6"
 }

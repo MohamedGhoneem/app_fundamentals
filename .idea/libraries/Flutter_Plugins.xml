@@ -2,8 +2,8 @@
   <library name="Flutter Plugins" type="FlutterPluginsLibraryType">
     <CLASSES>
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/webview_flutter-4.2.4" />
+      <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/webview_flutter_android-3.10.1" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/webview_flutter_wkwebview-3.7.4" />
-      <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/webview_flutter_android-3.9.5" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

@@ -85,10 +85,10 @@ packages:
     dependency: "direct main"
     description:
       name: encrypt
-      sha256: "4fd4e4fdc21b9d7d4141823e1e6515cd94e7b8d84749504c232999fba25d9bbb"
+      sha256: "62d9aa4670cc2a8798bab89b39fc71b6dfbacf615de6cf5001fb39f7e4a996a2"
       url: "https://pub.dev"
     source: hosted
-    version: "5.0.1"
+    version: "5.0.3"
   fake_async:
     dependency: transitive
     description:
@@ -101,10 +101,10 @@ packages:
     dependency: "direct main"
     description:
       name: flavorizer_config
-      sha256: bb5a2ffe9dfa91335cc2cf60b08d766ffde01ce88973d532270127d633e7b142
+      sha256: "26c76a87a97ce16f4f226b2ef32775f45ed1f77dc98cd99c6d4869f5515e2e05"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.3"
+    version: "0.0.4"
   flutter:
     dependency: "direct main"
     description: flutter
@@ -175,10 +175,10 @@ packages:
     dependency: "direct main"
     description:
       name: network_implementation
-      sha256: c83fcbefab544c0afc187806e0983be612bc3ab1490e2f3cd61950b837faed1a
+      sha256: "6454e48d05e05fca39c43e817dbe9805c12635eb54985a0b6c086a48821d049e"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.4"
+    version: "0.0.8"
   nirikshak:
     dependency: transitive
     description:
@@ -316,18 +316,18 @@ packages:
     dependency: transitive
     description:
       name: webview_flutter_android
-      sha256: "0d8f5ac96a155e672129bf94c7abf625de01241d44d269dbaff083f1b4deb1aa"
+      sha256: ddc167c6676f57c8b367d19fcbee267d6dc6adf81bd6c3cb87981d30746e0a6d
       url: "https://pub.dev"
     source: hosted
-    version: "3.9.5"
+    version: "3.10.1"
   webview_flutter_platform_interface:
     dependency: transitive
     description:
       name: webview_flutter_platform_interface
-      sha256: "9d32a63a5ee111b37482cb3eac3379b9f0992afd27a52ee30279dbf06f41918b"
+      sha256: "6d9213c65f1060116757a7c473247c60f3f7f332cac33dc417c9e362a9a13e4f"
       url: "https://pub.dev"
     source: hosted
-    version: "2.5.1"
+    version: "2.6.0"
   webview_flutter_wkwebview:
     dependency: transitive
     description:
