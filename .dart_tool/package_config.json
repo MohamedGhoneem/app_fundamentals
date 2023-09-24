@@ -135,7 +135,7 @@
     },
     {
       "name": "network_implementation",
-      "rootUri": "file:///Users/AmrMostafa/.pub-cache/hosted/pub.dev/network_implementation-0.0.8",
+      "rootUri": "file:///Users/AmrMostafa/.pub-cache/hosted/pub.dev/network_implementation-0.0.9",
       "packageUri": "lib/",
       "languageVersion": "3.0"
     },
@@ -266,7 +266,7 @@
       "languageVersion": "3.0"
     }
   ],
-  "generated": "2023-09-21T12:17:16.004231Z",
+  "generated": "2023-09-21T12:38:10.543888Z",
   "generator": "pub",
   "generatorVersion": "3.0.6"
 }

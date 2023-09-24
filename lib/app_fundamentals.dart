@@ -29,4 +29,4 @@ export 'src/app_encryptor.dart';
 export 'package:rxdart_bloc/rxdart_bloc.dart';
 export 'package:flavorizer_config/flavorizer_config.dart';
 export 'package:responsive_screen_type/responsive_screen_type.dart';
-export 'package:network_implementation/network_implementation.dart' show NetworkImplementation;
+export 'package:network_implementation/network_implementation.dart' show NetworkImplementation, IsolateThread, ExceptionHandler ;

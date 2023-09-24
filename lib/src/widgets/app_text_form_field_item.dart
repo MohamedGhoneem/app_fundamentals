@@ -1,4 +1,6 @@
-import 'dart:developer';
+import 'package:app_fundamentals/src/widgets/text_form_field/app_text_form_field_enum.dart';
+import 'package:app_fundamentals/src/widgets/text_form_field/password_text_form_field_item.dart';
+import 'package:app_fundamentals/src/widgets/text_form_field/text_form_field_item.dart';
 import 'package:flutter/material.dart';
 import 'package:rxdart_bloc/rxdart_bloc.dart';
 
@@ -6,19 +8,6 @@ import 'package:rxdart_bloc/rxdart_bloc.dart';
 /// CREATED BY MOHAMED GHONEIM 01/01/2022 TEL// +201064626369
 ///==========================================================
 ///
-enum AppFormFieldItemType {
-  email,
-  password,
-  number,
-  text,
-  phone,
-  multiText,
-  userName,
-  userNameOrEmail,
-  firstName,
-  lastName,
-  search,
-}
 
 class AppTextFormFieldItem extends StatelessWidget {
   final TextEditingController? controller;
@@ -51,6 +40,7 @@ class AppTextFormFieldItem extends StatelessWidget {
   final int? maxLength;
   final Widget? showPasswordIcon;
   final BorderRadius? borderRadius;
+  final Color? fillColor;
 
   const AppTextFormFieldItem({
     this.controller,
@@ -83,6 +73,7 @@ class AppTextFormFieldItem extends StatelessWidget {
     this.maxLength,
     this.showPasswordIcon,
     this.borderRadius,
+    this.fillColor,
     Key? key,
   }) : super(key: key);
 
@@ -96,181 +87,74 @@ class AppTextFormFieldItem extends StatelessWidget {
               ? StreamBuilder(
                   stream: obscureTextSubject!.stream,
                   builder: (context, obscureTextSnapshot) {
-                    return passwordTextFormField(
-                        context: context,
+                    return PasswordTextFormFieldItem(
+                        controller: controller,
+                        title: title,
+                        formFieldItemType: formFieldItemType,
+                        subject: subject,
+                        obscureTextSubject: obscureTextSubject,
+                        focusNode: focusNode,
+                        textInputType: textInputType,
+                        fontSize: fontSize,
+                        fontColor: fontColor,
+                        label: label,
+                        prefixIcon: prefixIcon,
+                        labelFontColor: labelFontColor,
+                        borderColor: borderColor,
+                        focusedBorderColor: focusedBorderColor,
+                        cursorColor: cursorColor,
+                        iconColor: iconColor,
+                        focusedIconColor: focusedIconColor,
+                        maxLines: maxLines,
+                        onTap: onTap,
+                        validator: validator,
+                        showHint: showHint,
+                        showUnderLine: showUnderLine,
+                        readOnly: readOnly,
+                        autofocus: autofocus,
+                        contentPadding: contentPadding,
+                        submit: submit,
+                        onChanged: onChanged,
+                        maxLength: maxLength,
+                        showPasswordIcon: showPasswordIcon,
+                        borderRadius: borderRadius,
+                        fillColor: fillColor,
                         obscureTextSnapshot:
                             obscureTextSnapshot.data == true ? true : false);
                   })
-              : textFormField(context: context);
+              : TextFormFieldItem(
+                  controller: controller,
+                  title: title,
+                  formFieldItemType: formFieldItemType,
+                  subject: subject,
+                  obscureTextSubject: obscureTextSubject,
+                  focusNode: focusNode,
+                  textInputType: textInputType,
+                  fontSize: fontSize,
+                  fontColor: fontColor,
+                  label: label,
+                  prefixIcon: prefixIcon,
+                  labelFontColor: labelFontColor,
+                  borderColor: borderColor,
+                  focusedBorderColor: focusedBorderColor,
+                  cursorColor: cursorColor,
+                  iconColor: iconColor,
+                  focusedIconColor: focusedIconColor,
+                  maxLines: maxLines,
+                  onTap: onTap,
+                  validator: validator,
+                  showHint: showHint,
+                  showUnderLine: showUnderLine,
+                  readOnly: readOnly,
+                  autofocus: autofocus,
+                  contentPadding: contentPadding,
+                  submit: submit,
+                  onChanged: onChanged,
+                  maxLength: maxLength,
+                  showPasswordIcon: showPasswordIcon,
+                  borderRadius: borderRadius,
+                  fillColor: fillColor,
+                );
         });
-  }
-
-  TextFormField passwordTextFormField(
-      {required BuildContext context, required bool obscureTextSnapshot}) {
-    return TextFormField(
-        onTap: onTap,
-        controller: controller,
-        cursorColor: cursorColor,
-        focusNode: focusNode,
-        autofocus: autofocus ?? false,
-        maxLines: 1,
-        maxLength: maxLength,
-        style: TextStyle(
-            fontSize: fontSize ?? 13, color: fontColor ?? Colors.black),
-        autovalidateMode: AutovalidateMode.onUserInteraction,
-        obscureText: formFieldItemType == AppFormFieldItemType.password &&
-                obscureTextSubject!.value
-            ? true
-            : false,
-        keyboardType: textInputType,
-        onChanged: onChanged ??
-            (String input) {
-              subject.sink.add(input);
-            },
-        decoration: InputDecoration(
-          prefixIcon: prefixIcon ?? const SizedBox(),
-          suffixIcon: formFieldItemType == AppFormFieldItemType.password
-              ? IconButton(
-                  onPressed: () {
-                    log(obscureTextSubject!.value.toString());
-                    obscureTextSubject!.sink.add(!obscureTextSubject!.value);
-                  },
-                  icon: showPasswordIcon ??
-                      Icon(
-                        Icons.remove_red_eye,
-                        color: obscureTextSnapshot
-                            ? borderColor
-                            : focusedBorderColor,
-                      ))
-              : const SizedBox(width: 0, height: 20),
-          focusedBorder: showUnderLine == true
-              ? UnderlineInputBorder(
-                  borderSide: BorderSide(width: 1, color: labelFontColor))
-              : OutlineInputBorder(
-                  borderSide: BorderSide(width: 1, color: focusedBorderColor),
-                  borderRadius: borderRadius ??
-                      const BorderRadius.all(Radius.circular(4))),
-          enabledBorder: showUnderLine == true
-              ? UnderlineInputBorder(
-                  borderSide: BorderSide(width: 1, color: labelFontColor))
-              : OutlineInputBorder(
-                  borderSide: BorderSide(width: 1, color: borderColor),
-                  borderRadius: borderRadius ??
-                      const BorderRadius.all(Radius.circular(4))),
-          border: showUnderLine == true
-              ? UnderlineInputBorder(
-                  borderSide: BorderSide(width: 1, color: labelFontColor))
-              : OutlineInputBorder(
-                  borderSide: BorderSide(width: 1, color: borderColor),
-                  borderRadius: borderRadius ??
-                      const BorderRadius.all(Radius.circular(4))),
-          errorBorder: showUnderLine == true
-              ? const UnderlineInputBorder(
-                  borderSide: BorderSide(width: 1, color: Colors.red))
-              : OutlineInputBorder(
-                  borderSide: const BorderSide(width: 1, color: Colors.red),
-                  borderRadius: borderRadius ??
-                      const BorderRadius.all(Radius.circular(4))),
-          focusedErrorBorder: showUnderLine == true
-              ? const UnderlineInputBorder(
-                  borderSide: BorderSide(width: 1, color: Colors.red))
-              : OutlineInputBorder(
-                  borderSide: const BorderSide(width: 1, color: Colors.red),
-                  borderRadius: borderRadius ??
-                      const BorderRadius.all(Radius.circular(4))),
-          contentPadding: contentPadding ?? const EdgeInsets.all(16),
-          // labelStyle: TextStyle(
-          //     fontSize: SizeConfig.textFontSize, color: labelFontColor),
-          floatingLabelBehavior: FloatingLabelBehavior.always,
-          label: label,
-          hintText: showHint == true ? title : '',
-          hintStyle: TextStyle(fontSize: 13, color: labelFontColor),
-          errorText: subject.hasError ? subject.stream.error.toString() : null,
-          errorStyle: const TextStyle(fontSize: 10, color: Colors.red),
-        ),
-        onEditingComplete: submit,
-        validator: validator);
-  }
-
-  TextFormField textFormField({required BuildContext context}) {
-    return TextFormField(
-        onTap: onTap,
-        controller: controller,
-        cursorColor: cursorColor,
-        focusNode: focusNode,
-        autofocus: autofocus ?? false,
-        readOnly: readOnly ?? false,
-        maxLines:
-            formFieldItemType == AppFormFieldItemType.multiText ? maxLines : 1,
-        maxLength: maxLength,
-        style: TextStyle(
-            fontSize: fontSize ?? 13, color: fontColor ?? Colors.black),
-        autovalidateMode: AutovalidateMode.onUserInteraction,
-        obscureText: formFieldItemType == AppFormFieldItemType.password &&
-                obscureTextSubject!.value
-            ? true
-            : false,
-        keyboardType: textInputType,
-        textAlignVertical: TextAlignVertical.center,
-        onChanged: onChanged ??
-            (String input) {
-              subject.sink.add(input);
-            },
-        decoration: InputDecoration(
-            prefixIcon: prefixIcon,
-            //   suffixIcon: const SizedBox(width: 0, height: 20),
-            focusedBorder: showUnderLine == true
-                ? UnderlineInputBorder(
-                    borderSide: BorderSide(width: 1, color: labelFontColor))
-                : OutlineInputBorder(
-                    borderSide: BorderSide(width: 1, color: focusedBorderColor),
-                    borderRadius: borderRadius ??
-                        const BorderRadius.all(Radius.circular(4))),
-            enabledBorder: showUnderLine == true
-                ? UnderlineInputBorder(
-                    borderSide: BorderSide(width: 1, color: labelFontColor))
-                : OutlineInputBorder(
-                    borderSide: BorderSide(width: 1, color: borderColor),
-                    borderRadius: borderRadius ??
-                        const BorderRadius.all(Radius.circular(4))),
-            border: showUnderLine == true
-                ? UnderlineInputBorder(
-                    borderSide: BorderSide(width: 1, color: labelFontColor))
-                : OutlineInputBorder(
-                    borderSide: BorderSide(width: 1, color: borderColor),
-                    borderRadius: borderRadius ??
-                        const BorderRadius.all(Radius.circular(4))),
-            errorBorder: showUnderLine == true
-                ? const UnderlineInputBorder(
-                    borderSide: BorderSide(width: 1, color: Colors.red))
-                : OutlineInputBorder(
-                    borderSide: const BorderSide(width: 1, color: Colors.red),
-                    borderRadius: borderRadius ??
-                        const BorderRadius.all(Radius.circular(4))),
-            focusedErrorBorder: showUnderLine == true
-                ? const UnderlineInputBorder(
-                    borderSide: BorderSide(width: 1, color: Colors.red))
-                : OutlineInputBorder(
-                    borderSide: const BorderSide(width: 1, color: Colors.red),
-                    borderRadius: borderRadius ??
-                        const BorderRadius.all(Radius.circular(4))),
-            contentPadding: contentPadding ?? const EdgeInsets.all(16),
-            // labelStyle: TextStyle(
-            //     fontSize: SizeConfig.textFontSize, color: labelFontColor),
-            floatingLabelBehavior: FloatingLabelBehavior.always,
-            label: label,
-            hintText: showHint == true ? title : '',
-            hintStyle: TextStyle(
-              fontSize: 13,
-              color: labelFontColor,
-            ),
-            errorText:
-                subject.hasError ? subject.stream.error.toString() : null,
-            errorStyle: const TextStyle(fontSize: 10, color: Colors.red),
-            isCollapsed: true,
-            isDense: true,
-            counterText: ''),
-        onEditingComplete: submit,
-        validator: validator);
   }
 }
