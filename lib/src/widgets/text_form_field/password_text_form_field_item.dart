@@ -16,7 +16,6 @@ class PasswordTextFormFieldItem extends BaseTextFormFieldItem {
     super.controller,
     required super.title,
     required super.formFieldItemType,
-    required super.subject,
     super.obscureTextSubject,
     super.focusNode,
     required super.textInputType,
@@ -24,6 +23,7 @@ class PasswordTextFormFieldItem extends BaseTextFormFieldItem {
     super.fontColor,
     super.label,
     super.prefixIcon,
+    super.suffixIcon,
     required super.labelFontColor,
     required super.borderColor,
     required super.focusedBorderColor,
@@ -66,26 +66,25 @@ class PasswordTextFormFieldItem extends BaseTextFormFieldItem {
             ? true
             : false,
         keyboardType: textInputType,
-        onChanged: onChanged ??
-            (String input) {
-              subject.sink.add(input);
-            },
+        onChanged: onChanged,
         decoration: InputDecoration(
           prefixIcon: prefixIcon ?? const SizedBox(),
-          suffixIcon: formFieldItemType == AppFormFieldItemType.password
-              ? IconButton(
-                  onPressed: () {
-                    log(obscureTextSubject!.value.toString());
-                    obscureTextSubject!.sink.add(!obscureTextSubject!.value);
-                  },
-                  icon: showPasswordIcon ??
-                      Icon(
-                        Icons.remove_red_eye,
-                        color: obscureTextSnapshot
-                            ? borderColor
-                            : focusedBorderColor,
-                      ))
-              : const SizedBox(width: 0, height: 20),
+          suffixIcon: suffixIcon ??
+              (formFieldItemType == AppFormFieldItemType.password
+                  ? IconButton(
+                      onPressed: () {
+                        log(obscureTextSubject!.value.toString());
+                        obscureTextSubject!.sink
+                            .add(!obscureTextSubject!.value);
+                      },
+                      icon: showPasswordIcon ??
+                          Icon(
+                            Icons.remove_red_eye,
+                            color: obscureTextSnapshot
+                                ? borderColor
+                                : focusedBorderColor,
+                          ))
+                  : const SizedBox(width: 0, height: 20)),
           focusedBorder: showUnderLine == true
               ? UnderlineInputBorder(
                   borderSide: BorderSide(width: 1, color: labelFontColor))
@@ -128,9 +127,10 @@ class PasswordTextFormFieldItem extends BaseTextFormFieldItem {
           label: label,
           hintText: showHint == true ? title : '',
           hintStyle: TextStyle(fontSize: 13, color: labelFontColor),
-          errorText: subject.hasError ? subject.stream.error.toString() : null,
+          //   errorText: subject.hasError ? subject.stream.error.toString() : null,
           errorStyle: const TextStyle(fontSize: 10, color: Colors.red),
           fillColor: fillColor ?? Colors.transparent,
+          filled: true, // dont forget this line
         ),
         onEditingComplete: submit,
         validator: validator);

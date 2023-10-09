@@ -13,7 +13,7 @@ class AppTextFormFieldItem extends StatelessWidget {
   final TextEditingController? controller;
   final String title;
   final AppFormFieldItemType formFieldItemType;
-  final BehaviorSubject subject;
+  final Stream stream;
   final BehaviorSubject<bool>? obscureTextSubject;
   final FocusNode? focusNode;
   final TextInputType textInputType;
@@ -21,6 +21,7 @@ class AppTextFormFieldItem extends StatelessWidget {
   final Color? fontColor;
   final Widget? label;
   final Widget? prefixIcon;
+  final Widget? suffixIcon;
   final Color labelFontColor;
   final Color borderColor;
   final Color focusedBorderColor;
@@ -46,7 +47,7 @@ class AppTextFormFieldItem extends StatelessWidget {
     this.controller,
     required this.title,
     required this.formFieldItemType,
-    required this.subject,
+    required this.stream,
     this.obscureTextSubject,
     this.focusNode,
     required this.textInputType,
@@ -54,6 +55,7 @@ class AppTextFormFieldItem extends StatelessWidget {
     this.fontColor,
     this.label,
     this.prefixIcon,
+    this.suffixIcon,
     required this.labelFontColor,
     required this.borderColor,
     required this.focusedBorderColor,
@@ -80,81 +82,81 @@ class AppTextFormFieldItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return StreamBuilder(
-        stream: subject.stream,
+        stream: stream,
         builder: (context, snapshot) {
           return formFieldItemType == AppFormFieldItemType.password &&
-                  obscureTextSubject != null
+              obscureTextSubject != null
               ? StreamBuilder(
-                  stream: obscureTextSubject!.stream,
-                  builder: (context, obscureTextSnapshot) {
-                    return PasswordTextFormFieldItem(
-                        controller: controller,
-                        title: title,
-                        formFieldItemType: formFieldItemType,
-                        subject: subject,
-                        obscureTextSubject: obscureTextSubject,
-                        focusNode: focusNode,
-                        textInputType: textInputType,
-                        fontSize: fontSize,
-                        fontColor: fontColor,
-                        label: label,
-                        prefixIcon: prefixIcon,
-                        labelFontColor: labelFontColor,
-                        borderColor: borderColor,
-                        focusedBorderColor: focusedBorderColor,
-                        cursorColor: cursorColor,
-                        iconColor: iconColor,
-                        focusedIconColor: focusedIconColor,
-                        maxLines: maxLines,
-                        onTap: onTap,
-                        validator: validator,
-                        showHint: showHint,
-                        showUnderLine: showUnderLine,
-                        readOnly: readOnly,
-                        autofocus: autofocus,
-                        contentPadding: contentPadding,
-                        submit: submit,
-                        onChanged: onChanged,
-                        maxLength: maxLength,
-                        showPasswordIcon: showPasswordIcon,
-                        borderRadius: borderRadius,
-                        fillColor: fillColor,
-                        obscureTextSnapshot:
-                            obscureTextSnapshot.data == true ? true : false);
-                  })
+              stream: obscureTextSubject!.stream,
+              builder: (context, obscureTextSnapshot) {
+                return PasswordTextFormFieldItem(
+                    controller: controller,
+                    title: title,
+                    formFieldItemType: formFieldItemType,
+                    obscureTextSubject: obscureTextSubject,
+                    focusNode: focusNode,
+                    textInputType: textInputType,
+                    fontSize: fontSize,
+                    fontColor: fontColor,
+                    label: label,
+                    prefixIcon: prefixIcon,
+                    suffixIcon: suffixIcon,
+                    labelFontColor: labelFontColor,
+                    borderColor: borderColor,
+                    focusedBorderColor: focusedBorderColor,
+                    cursorColor: cursorColor,
+                    iconColor: iconColor,
+                    focusedIconColor: focusedIconColor,
+                    maxLines: maxLines,
+                    onTap: onTap,
+                    validator: validator,
+                    showHint: showHint,
+                    showUnderLine: showUnderLine,
+                    readOnly: readOnly,
+                    autofocus: autofocus,
+                    contentPadding: contentPadding,
+                    submit: submit,
+                    onChanged: onChanged,
+                    maxLength: maxLength,
+                    showPasswordIcon: showPasswordIcon,
+                    borderRadius: borderRadius,
+                    fillColor: fillColor,
+                    obscureTextSnapshot:
+                    obscureTextSnapshot.data == true ? true : false);
+              })
               : TextFormFieldItem(
-                  controller: controller,
-                  title: title,
-                  formFieldItemType: formFieldItemType,
-                  subject: subject,
-                  obscureTextSubject: obscureTextSubject,
-                  focusNode: focusNode,
-                  textInputType: textInputType,
-                  fontSize: fontSize,
-                  fontColor: fontColor,
-                  label: label,
-                  prefixIcon: prefixIcon,
-                  labelFontColor: labelFontColor,
-                  borderColor: borderColor,
-                  focusedBorderColor: focusedBorderColor,
-                  cursorColor: cursorColor,
-                  iconColor: iconColor,
-                  focusedIconColor: focusedIconColor,
-                  maxLines: maxLines,
-                  onTap: onTap,
-                  validator: validator,
-                  showHint: showHint,
-                  showUnderLine: showUnderLine,
-                  readOnly: readOnly,
-                  autofocus: autofocus,
-                  contentPadding: contentPadding,
-                  submit: submit,
-                  onChanged: onChanged,
-                  maxLength: maxLength,
-                  showPasswordIcon: showPasswordIcon,
-                  borderRadius: borderRadius,
-                  fillColor: fillColor,
-                );
+            controller: controller,
+            title: title,
+            formFieldItemType: formFieldItemType,
+            obscureTextSubject: obscureTextSubject,
+            focusNode: focusNode,
+            textInputType: textInputType,
+            fontSize: fontSize,
+            fontColor: fontColor,
+            label: label,
+            prefixIcon: prefixIcon,
+            suffixIcon: suffixIcon,
+            labelFontColor: labelFontColor,
+            borderColor: borderColor,
+            focusedBorderColor: focusedBorderColor,
+            cursorColor: cursorColor,
+            iconColor: iconColor,
+            focusedIconColor: focusedIconColor,
+            maxLines: maxLines,
+            onTap: onTap,
+            validator: validator,
+            showHint: showHint,
+            showUnderLine: showUnderLine,
+            readOnly: readOnly,
+            autofocus: autofocus,
+            contentPadding: contentPadding,
+            submit: submit,
+            onChanged: onChanged,
+            maxLength: maxLength,
+            showPasswordIcon: showPasswordIcon,
+            borderRadius: borderRadius,
+            fillColor: fillColor,
+          );
         });
   }
 }

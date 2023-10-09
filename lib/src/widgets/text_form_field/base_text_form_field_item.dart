@@ -13,7 +13,6 @@ class BaseTextFormFieldItem extends StatelessWidget {
   final TextEditingController? controller;
   final String title;
   final AppFormFieldItemType formFieldItemType;
-  final BehaviorSubject subject;
   final BehaviorSubject<bool>? obscureTextSubject;
   final FocusNode? focusNode;
   final TextInputType textInputType;
@@ -21,6 +20,7 @@ class BaseTextFormFieldItem extends StatelessWidget {
   final Color? fontColor;
   final Widget? label;
   final Widget? prefixIcon;
+  final Widget? suffixIcon;
   final Color labelFontColor;
   final Color borderColor;
   final Color focusedBorderColor;
@@ -46,7 +46,6 @@ class BaseTextFormFieldItem extends StatelessWidget {
     this.controller,
     required this.title,
     required this.formFieldItemType,
-    required this.subject,
     this.obscureTextSubject,
     this.focusNode,
     required this.textInputType,
@@ -54,6 +53,7 @@ class BaseTextFormFieldItem extends StatelessWidget {
     this.fontColor,
     this.label,
     this.prefixIcon,
+    this.suffixIcon,
     required this.labelFontColor,
     required this.borderColor,
     required this.focusedBorderColor,
