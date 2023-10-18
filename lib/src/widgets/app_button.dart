@@ -34,48 +34,52 @@ class AppButton extends StatelessWidget {
   final InteractiveInkFeatureFactory? splashFactory;
   final RoundedRectangleBorder? roundedRectangleBorder;
 
-  const AppButton({Key? key,
-    required this.title,
-    this.titleFontSize,
-    this.icon,
-    this.style,
-    this.borderColor,
-    this.backgroundColor,
-    this.width,
-    this.height,
-    this.radius,
-    this.spaceBetween,
-    this.padding,
-    this.margin,
-    required this.onTap,
-    this.alignment,
-    this.splashFactory,
-    this.roundedRectangleBorder})
+  const AppButton(
+      {Key? key,
+      required this.title,
+      this.titleFontSize,
+      this.icon,
+      this.style,
+      this.borderColor,
+      this.backgroundColor,
+      this.width,
+      this.height,
+      this.radius,
+      this.spaceBetween,
+      this.padding,
+      this.margin,
+      required this.onTap,
+      this.alignment,
+      this.splashFactory,
+      this.roundedRectangleBorder})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
       height: height ?? 45,
-      width: width ?? MediaQuery
-          .of(context)
-          .size
-          .width,
+      width: width ?? MediaQuery.of(context).size.width,
       margin: margin ?? EdgeInsets.zero,
       child: OutlinedButton(
         style: OutlinedButton.styleFrom(
           padding: EdgeInsets.zero,
-          backgroundColor: backgroundColor??Colors.transparent,
+          backgroundColor: backgroundColor ?? Colors.transparent,
           primary: backgroundColor,
           splashFactory: splashFactory ?? InkRipple.splashFactory,
           shape: roundedRectangleBorder ??
               RoundedRectangleBorder(
                   borderRadius:
-                  BorderRadius.all(Radius.circular(radius ?? 0.0))),
-          side: BorderSide(color: borderColor??Colors.transparent, width: 1),
+                      BorderRadius.all(Radius.circular(radius ?? 0.0))),
+          side: BorderSide(color: borderColor ?? Colors.transparent, width: 1),
         ),
         autofocus: false,
-        onPressed: onTap,
+        onPressed: () {
+          FocusManager.instance.primaryFocus?.unfocus();
+          if (onTap != null) {
+            onTap!();
+          }
+
+        },
         child: Padding(padding: padding ?? EdgeInsets.zero, child: btn()),
       ),
     );

@@ -62,13 +62,13 @@ abstract class BaseState<T extends BaseStatefulWidget> extends State<T>
 
   _listenForError(RxdartBlocState blocMixin, {Function? errorAction}) {
     blocMixin.errorStream.listen((data) async {
-      Map error = data.toJson();
-      AppDialog appDialog = AppDialog();
-      appDialog.child = AppDialogContent(description: error['message'] ?? '');
-      await showDialog(
-          context: context,
-          barrierDismissible: false,
-          builder: (BuildContext context) => appDialog);
+      // Map error = data.toJson();
+      // AppDialog appDialog = AppDialog();
+      // appDialog.child = AppDialogContent(description: error['message'] ?? '');
+      // await showDialog(
+      //     context: context,
+      //     barrierDismissible: false,
+      //     builder: (BuildContext context) => appDialog);
     });
   }
 
