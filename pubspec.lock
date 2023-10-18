@@ -231,10 +231,10 @@ packages:
     dependency: "direct main"
     description:
       name: rxdart_bloc
-      sha256: "2c06e2aa7cc39956b15397f4321307ec51f7fbce0927e5214652e11e75ce19ab"
+      sha256: b868808be4629274611fadb22c4910ea7995fb590a6bdba19753a7a3df4b1295
       url: "https://pub.dev"
     source: hosted
-    version: "1.0.11"
+    version: "1.0.12"
   sky_engine:
     dependency: transitive
     description: flutter
