@@ -208,7 +208,7 @@
         <entry key="rxdart_bloc">
           <value>
             <list>
-              <option value="$USER_HOME$/.pub-cache/hosted/pub.dev/rxdart_bloc-1.0.11/lib" />
+              <option value="$USER_HOME$/.pub-cache/hosted/pub.dev/rxdart_bloc-1.0.12/lib" />
             </list>
           </value>
         </entry>
@@ -333,7 +333,7 @@
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/pointycastle-3.7.3/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/responsive_screen_type-1.0.3/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/rxdart-0.27.7/lib" />
-      <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/rxdart_bloc-1.0.11/lib" />
+      <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/rxdart_bloc-1.0.12/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/source_span-1.9.1/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/stack_trace-1.11.0/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/stream_channel-2.1.1/lib" />
