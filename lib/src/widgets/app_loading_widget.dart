@@ -5,10 +5,9 @@ import 'package:flutter/material.dart';
 ///==========================================================
 ///
 class AppLoadingWidget extends StatelessWidget {
-  final Color? color;
   final Widget? loadingWidget;
 
-  const AppLoadingWidget({Key? key, this.color, this.loadingWidget})
+  const AppLoadingWidget({Key? key, this.loadingWidget})
       : super(key: key);
 
   @override
@@ -16,7 +15,7 @@ class AppLoadingWidget extends StatelessWidget {
     return Center(
       child: loadingWidget ??
           CircularProgressIndicator(
-              valueColor: AlwaysStoppedAnimation(color ?? Colors.blue)),
+              valueColor: AlwaysStoppedAnimation(Theme.of(context).primaryColor)),
     );
     // return Align(
     //   alignment: Alignment.center,
