@@ -73,14 +73,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.0.3"
-  dio:
-    dependency: transitive
-    description:
-      name: dio
-      sha256: ce75a1b40947fea0a0e16ce73337122a86762e38b982e1ccb909daa3b9bc4197
-      url: "https://pub.dev"
-    source: hosted
-    version: "5.3.2"
   encrypt:
     dependency: "direct main"
     description:
@@ -123,14 +115,6 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-  http_parser:
-    dependency: transitive
-    description:
-      name: http_parser
-      sha256: "2aa08ce0341cc9b354a498388e30986515406668dbcc4f7c950c3e715496693b"
-      url: "https://pub.dev"
-    source: hosted
-    version: "4.0.2"
   js:
     dependency: transitive
     description:
@@ -171,22 +155,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.9.1"
-  network_implementation:
-    dependency: "direct main"
-    description:
-      name: network_implementation
-      sha256: "0399df74dabb0e3c8a8d5748495549c3de48ce9b0faa0cf0e23d42b7a774ec74"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.0.9"
-  nirikshak:
-    dependency: transitive
-    description:
-      name: nirikshak
-      sha256: "9452bad32572d82811fe6ef3f39f24c9fba6d94c85c3f310173fb56526fd3e7c"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.1.1"
   path:
     dependency: transitive
     description:

@@ -56,12 +56,6 @@
       "languageVersion": "2.19"
     },
     {
-      "name": "dio",
-      "rootUri": "file:///Users/AmrMostafa/.pub-cache/hosted/pub.dev/dio-5.3.2",
-      "packageUri": "lib/",
-      "languageVersion": "2.15"
-    },
-    {
       "name": "encrypt",
       "rootUri": "file:///Users/AmrMostafa/.pub-cache/hosted/pub.dev/encrypt-5.0.3",
       "packageUri": "lib/",
@@ -98,12 +92,6 @@
       "languageVersion": "3.0"
     },
     {
-      "name": "http_parser",
-      "rootUri": "file:///Users/AmrMostafa/.pub-cache/hosted/pub.dev/http_parser-4.0.2",
-      "packageUri": "lib/",
-      "languageVersion": "2.12"
-    },
-    {
       "name": "js",
       "rootUri": "file:///Users/AmrMostafa/.pub-cache/hosted/pub.dev/js-0.6.7",
       "packageUri": "lib/",
@@ -132,18 +120,6 @@
       "rootUri": "file:///Users/AmrMostafa/.pub-cache/hosted/pub.dev/meta-1.9.1",
       "packageUri": "lib/",
       "languageVersion": "2.12"
-    },
-    {
-      "name": "network_implementation",
-      "rootUri": "file:///Users/AmrMostafa/.pub-cache/hosted/pub.dev/network_implementation-0.0.9",
-      "packageUri": "lib/",
-      "languageVersion": "3.0"
-    },
-    {
-      "name": "nirikshak",
-      "rootUri": "file:///Users/AmrMostafa/.pub-cache/hosted/pub.dev/nirikshak-0.1.1",
-      "packageUri": "lib/",
-      "languageVersion": "2.18"
     },
     {
       "name": "path",
@@ -266,7 +242,7 @@
       "languageVersion": "3.0"
     }
   ],
-  "generated": "2023-10-18T11:56:32.405540Z",
+  "generated": "2023-11-29T12:16:48.853479Z",
   "generator": "pub",
   "generatorVersion": "3.0.6"
 }

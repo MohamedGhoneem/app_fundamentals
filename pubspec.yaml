@@ -13,8 +13,8 @@ dependencies:
   flutter:
     sdk: flutter
 #  network_implementation: ^0.0.9
-  network_implementation:
-    git: https://github.com/MohamedGhoneem/network_implementation
+#  network_implementation:
+#    git: https://github.com/MohamedGhoneem/network_implementation
 
   rxdart_bloc: ^1.0.12
   flavorizer_config: ^0.0.3
