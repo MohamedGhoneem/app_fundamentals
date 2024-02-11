@@ -71,20 +71,20 @@ class PasswordTextFormFieldItem extends BaseTextFormFieldItem {
           prefixIcon: prefixIcon,
           suffixIcon: suffixIcon ??
               (formFieldItemType == AppFormFieldItemType.password
-                  ? IconButton(
-                      onPressed: () {
+                  ? InkWell(
+                      onTap: () {
                         log(obscureTextSubject!.value.toString());
                         obscureTextSubject!.sink
                             .add(!obscureTextSubject!.value);
                       },
-                      icon: showPasswordIcon ??
+                      child: showPasswordIcon ??
                           Icon(
                             Icons.remove_red_eye,
                             color: obscureTextSnapshot
                                 ? borderColor
                                 : focusedBorderColor,
                           ))
-                  : const SizedBox(width: 0, height: 20)),
+                  : null),
           focusedBorder: showUnderLine == true
               ? UnderlineInputBorder(
                   borderSide: BorderSide(width: 1, color: labelFontColor))
