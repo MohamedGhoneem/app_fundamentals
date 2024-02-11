@@ -68,7 +68,7 @@ class PasswordTextFormFieldItem extends BaseTextFormFieldItem {
         keyboardType: textInputType,
         onChanged: onChanged,
         decoration: InputDecoration(
-          prefixIcon: prefixIcon ?? const SizedBox(),
+          prefixIcon: prefixIcon,
           suffixIcon: suffixIcon ??
               (formFieldItemType == AppFormFieldItemType.password
                   ? IconButton(
