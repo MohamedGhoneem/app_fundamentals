@@ -83,6 +83,7 @@ class PasswordTextFormFieldItem extends BaseTextFormFieldItem {
                             color: obscureTextSnapshot
                                 ? borderColor
                                 : focusedBorderColor,
+                            size: 15,
                           ))
                   : null),
           focusedBorder: showUnderLine == true
