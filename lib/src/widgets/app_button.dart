@@ -64,7 +64,7 @@ class AppButton extends StatelessWidget {
         style: OutlinedButton.styleFrom(
           padding: EdgeInsets.zero,
           backgroundColor: backgroundColor ?? Colors.transparent,
-          primary: backgroundColor,
+          foregroundColor: backgroundColor,
           splashFactory: splashFactory ?? InkRipple.splashFactory,
           shape: roundedRectangleBorder ??
               RoundedRectangleBorder(
