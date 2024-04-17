@@ -2,7 +2,7 @@
 /// CREATED BY MOHAMED GHONEIM 01/01/2022 TEL// +201064626369
 ///==========================================================
 ///
-library app_core;
+library app_fundamentals;
 
 export 'src/nav_bar/nav_bar_bloc.dart';
 export 'src/nav_bar/nav_bar_widget.dart';

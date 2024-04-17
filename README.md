@@ -1,39 +1,95 @@
-<!--
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
-
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/guides/libraries/writing-package-pages).
-
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-library-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/developing-packages).
--->
-
-Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
-
-## Features
-
-List what your package can do. Maybe include images, gifs, or videos.
-
 ## Getting started
 
-List prerequisites and provide or point to information on how to
-start using the package.
+With `null-safety`
+
+```dart 
+        dependencies:app_fundamentals: ^0.0.8
+
+```
+
+Add the dependency to your project and start using **flavorizer_config** #
+
+Importing the package #
+
+```dart
+import 'package:app_fundamentals/app_fundamentals.dart';
+```
 
 ## Usage
 
-Include short and useful examples for package users. Add longer examples
-to `/example` folder.
+To use this plugin, add flavorizer_config as a dependency in your pubspec.yaml file.
+
+## Example
+
+Here are an example that show you how to use this plugin.
+
+## main.dart
 
 ```dart
-const like = 'sample';
+AppButton
+(
+title: 'Back',
+alignment: AppButtonAlign.start,
+icon: SvgPicture.asset(backButtonIcon),
+onTap: () => Navigator.pop(context)
+);
 ```
 
-## Additional information
+```dart
+AppText
+(
+label: 'Text',
+textAlign: TextAlign.right,
+style: TextStyle(
+color: Colors.red,
+fontSize: 14,
+fontWeight: FontWeight.bold,
+)
+);
+```
 
-Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+```dart
+AppTextFormFieldItem
+(
+controller: _signInBloc.emailTextEditingController,
+readOnly:
+stateSnapshot.data?.status == RequestStatus.loading
+? true
+    : false,
+autofocus: true,
+title: AppLocalizations.of(context).email,
+formFieldItemType: AppFormFieldItemType.email,
+stream: _signInBloc.emailStream,
+onChanged: _signInBloc.onChangedEmailField,
+textInputType: TextInputType.emailAddress,
+labelFontColor: labelColor,
+borderColor: borderColor,
+focusedBorderColor: textFormFieldFocusedColor,
+iconColor: hintColor,
+focusedIconColor: textFormFieldFocusedColor,
+fillColor: bgColor,
+showHint: true,
+validator: (val) => _signInBloc.validateEmail(val),
+fontSize: SizeConfig.subTitleFontSize,
+contentPadding: EdgeInsets.symmetric(
+horizontal: SizeConfig.padding,
+vertical: SizeConfig.padding + 2.5),
+borderRadius: BorderRadius.all(
+Radius.circular(SizeConfig.paddingHalf
+)
+)
+);
+```
+
+## Improve
+
+Help me by reporting bugs, **submit new ideas** for features or anything else that you want to
+share.
+
+- Just [write an issue](https://github.com/MohamedGhoneem/app_fundamentals/issues) on GitHub. ✏️
+- And don't forget to hit the **like button** for this package ✌️
+
+## More
+
+Check out my other useful packages on [pub.dev](https://pub.dev/publishers/ghoneem.com/packages)
+

@@ -98,6 +98,24 @@
       "languageVersion": "2.19"
     },
     {
+      "name": "leak_tracker",
+      "rootUri": "file:///Users/AmrMostafa/.pub-cache/hosted/pub.dev/leak_tracker-10.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "3.1"
+    },
+    {
+      "name": "leak_tracker_flutter_testing",
+      "rootUri": "file:///Users/AmrMostafa/.pub-cache/hosted/pub.dev/leak_tracker_flutter_testing-2.0.1",
+      "packageUri": "lib/",
+      "languageVersion": "3.1"
+    },
+    {
+      "name": "leak_tracker_testing",
+      "rootUri": "file:///Users/AmrMostafa/.pub-cache/hosted/pub.dev/leak_tracker_testing-2.0.1",
+      "packageUri": "lib/",
+      "languageVersion": "3.1"
+    },
+    {
       "name": "lints",
       "rootUri": "file:///Users/AmrMostafa/.pub-cache/hosted/pub.dev/lints-2.1.1",
       "packageUri": "lib/",
@@ -105,27 +123,27 @@
     },
     {
       "name": "matcher",
-      "rootUri": "file:///Users/AmrMostafa/.pub-cache/hosted/pub.dev/matcher-0.12.16",
+      "rootUri": "file:///Users/AmrMostafa/.pub-cache/hosted/pub.dev/matcher-0.12.16+1",
       "packageUri": "lib/",
-      "languageVersion": "2.18"
+      "languageVersion": "3.0"
     },
     {
       "name": "material_color_utilities",
-      "rootUri": "file:///Users/AmrMostafa/.pub-cache/hosted/pub.dev/material_color_utilities-0.5.0",
+      "rootUri": "file:///Users/AmrMostafa/.pub-cache/hosted/pub.dev/material_color_utilities-0.8.0",
       "packageUri": "lib/",
       "languageVersion": "2.17"
     },
     {
       "name": "meta",
-      "rootUri": "file:///Users/AmrMostafa/.pub-cache/hosted/pub.dev/meta-1.10.0",
+      "rootUri": "file:///Users/AmrMostafa/.pub-cache/hosted/pub.dev/meta-1.11.0",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
     {
       "name": "path",
-      "rootUri": "file:///Users/AmrMostafa/.pub-cache/hosted/pub.dev/path-1.8.3",
+      "rootUri": "file:///Users/AmrMostafa/.pub-cache/hosted/pub.dev/path-1.9.0",
       "packageUri": "lib/",
-      "languageVersion": "2.12"
+      "languageVersion": "3.0"
     },
     {
       "name": "plugin_platform_interface",
@@ -212,10 +230,10 @@
       "languageVersion": "2.14"
     },
     {
-      "name": "web",
-      "rootUri": "file:///Users/AmrMostafa/.pub-cache/hosted/pub.dev/web-0.3.0",
+      "name": "vm_service",
+      "rootUri": "file:///Users/AmrMostafa/.pub-cache/hosted/pub.dev/vm_service-13.0.0",
       "packageUri": "lib/",
-      "languageVersion": "3.2"
+      "languageVersion": "3.0"
     },
     {
       "name": "webview_flutter",
@@ -248,7 +266,7 @@
       "languageVersion": "3.0"
     }
   ],
-  "generated": "2024-02-11T11:36:37.977104Z",
+  "generated": "2024-04-16T09:02:02.799795Z",
   "generator": "pub",
-  "generatorVersion": "3.2.6"
+  "generatorVersion": "3.3.0"
 }
