@@ -13,7 +13,7 @@ this is the available widgets you can try.
 Add the dependency to your project and start using **app_fundamentals** #
 ```dart 
 dependencies:
-   app_fundamentals : ^0.0.9
+   app_fundamentals : ^0.0.10
 ```
 
 

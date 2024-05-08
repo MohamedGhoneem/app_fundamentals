@@ -65,7 +65,7 @@ class AppBorderedDropDown<T> extends StatelessWidget {
                                     size: 12,
                                   )
                               : const SizedBox(),
-                      label: label ?? '',
+                      label: label,
                       labelColor: labelColor ?? Colors.blue,
                       fontSize: fontSize ?? 14,
                     ),
