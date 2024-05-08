@@ -19,6 +19,7 @@ class PasswordTextFormFieldItem extends BaseTextFormFieldItem {
     super.obscureTextSubject,
     super.focusNode,
     required super.textInputType,
+    super.textInputAction,
     super.fontSize,
     super.fontColor,
     super.label,
@@ -66,6 +67,7 @@ class PasswordTextFormFieldItem extends BaseTextFormFieldItem {
             ? true
             : false,
         keyboardType: textInputType,
+        textInputAction: textInputAction??TextInputAction.done,
         onChanged: onChanged,
         decoration: InputDecoration(
           prefixIcon: prefixIcon,

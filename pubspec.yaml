@@ -1,6 +1,6 @@
 name: app_fundamentals
-description: App Fundamentals for flutter projects
-version: 0.0.8
+description: App Fundamentals for customized Flutter widgets to reuse shared widgets easily.
+version: 0.0.9
 homepage: https://github.com/MohamedGhoneem/app_fundamentals
 #publish_to: none
 

@@ -16,6 +16,7 @@ class TextFormFieldItem extends BaseTextFormFieldItem {
     super.obscureTextSubject,
     super.focusNode,
     required super.textInputType,
+    super.textInputAction,
     super.fontSize,
     super.fontColor,
     super.label,
@@ -64,6 +65,7 @@ class TextFormFieldItem extends BaseTextFormFieldItem {
           ? true
           : false,
       keyboardType: textInputType,
+      textInputAction: textInputAction??TextInputAction.done,
       textAlignVertical: TextAlignVertical.center,
       onChanged: onChanged,
       decoration: InputDecoration(

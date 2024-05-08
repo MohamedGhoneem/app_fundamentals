@@ -16,6 +16,7 @@ class BaseTextFormFieldItem extends StatelessWidget {
   final BehaviorSubject<bool>? obscureTextSubject;
   final FocusNode? focusNode;
   final TextInputType textInputType;
+  final TextInputAction? textInputAction;
   final double? fontSize;
   final Color? fontColor;
   final Widget? label;
@@ -49,6 +50,7 @@ class BaseTextFormFieldItem extends StatelessWidget {
     this.obscureTextSubject,
     this.focusNode,
     required this.textInputType,
+    this.textInputAction,
     this.fontSize,
     this.fontColor,
     this.label,
